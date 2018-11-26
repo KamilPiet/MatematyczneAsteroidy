@@ -47,12 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asteroid.cs" />
+    <Compile Include="Bullet.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpaceShip.cs" />
@@ -81,6 +83,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\SpaceShip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Ast\Ast1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Ast\Ast2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Ast\Ast3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Graphics\Bullet.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

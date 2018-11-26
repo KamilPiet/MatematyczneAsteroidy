@@ -15,7 +15,6 @@ namespace MatematyczneAsteroidy
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            SpaceShip SpaceShip = new SpaceShip();
         }
     }
 }

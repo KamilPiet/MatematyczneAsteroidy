@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace MatematyczneAsteroidy
 {
-    class Asteroid
+    class Asteroid : ImageBase
     {
-        public int xPos;
-        public int yPos;
         public int xVel;
         public int yVel;
-        public Asteroid()
+
+        private Rectangle _AsteroidBox = new Rectangle();
+
+        public Asteroid(Bitmap _h)
+            : base(_h)
         {
-            this.xPos = 0;
-            this.yPos = 0;
-            this.xVel = 0;
-            this.yVel = 0;
+            this._AsteroidBox.X = Left + 10;
+            this._AsteroidBox.Y = Top + 10;
+            this._AsteroidBox.Width = 130;
+            this._AsteroidBox.Height = 130;
         }
     }
 }

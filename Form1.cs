@@ -12,27 +12,26 @@ namespace MatematyczneAsteroidy
 {
     public partial class Form1 : Form
     {
+        SpaceShip SpaceShip;
         public Form1()
         {
             InitializeComponent();
-            
+            SpaceShip = new SpaceShip() { Left = 500, Top = 500};
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
-
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            base.OnPaint(e);
-
             Graphics g = e.Graphics;
+            SpaceShip.DrawImage(g);
+            base.OnPaint(e);
         }
     }
 }
