@@ -14,28 +14,30 @@ namespace MatematyczneAsteroidy
 
         private int ax, ay, bx, by, cx, cy;
 
+        private int angle;
+
         public SpaceShip()
             : base(Properties.Resources.SpaceShip)
         {
-            this.ax = Left + 60;
-            this.ay = Top;          //Górny wierzchołek
+            this.ax = Left + Properties.Resources.SpaceShip.Width / 2;
+            this.ay = Top;                                            //Górny wierzchołek
             this.bx = Left;
-            this.by = Top + 120;    //Dolny lewy wierzchołek
-            this.cx = Left + 120;
-            this.cy = Top + 120;    //Dolny prawy wierzchołek
+            this.by = Top + Properties.Resources.SpaceShip.Height;    //Dolny lewy wierzchołek
+            this.cx = Left + Properties.Resources.SpaceShip.Width;
+            this.cy = Top + Properties.Resources.SpaceShip.Height;    //Dolny prawy wierzchołek
 
         }
 
         public void Update(int X, int Y)
         {
-            Left = X;
-            Top = Y;
-            this.ax = Left + 60;
-            this.ay = Top;          //Górny wierzchołek
+            this.Left = X;
+            this.Top = Y;
+            this.ax = Left + Properties.Resources.SpaceShip.Width / 2;
+            this.ay = Top;                                            //Górny wierzchołek
             this.bx = Left;
-            this.by = Top + 120;    //Dolny lewy wierzchołek
-            this.cx = Left + 120;
-            this.cy = Top + 120;    //Dolny prawy wierzchołek
+            this.by = Top + Properties.Resources.SpaceShip.Height;    //Dolny lewy wierzchołek
+            this.cx = Left + Properties.Resources.SpaceShip.Width;
+            this.cy = Top + Properties.Resources.SpaceShip.Height;    //Dolny prawy wierzchołek
         }
     }
 }

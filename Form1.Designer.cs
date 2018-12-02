@@ -34,6 +34,8 @@
             // 
             // timerGameLoop
             // 
+            this.timerGameLoop.Enabled = true;
+            this.timerGameLoop.Interval = 10;
             this.timerGameLoop.Tick += new System.EventHandler(this.timerGameLoop_Tick);
             // 
             // Form1
@@ -42,11 +44,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Matematyczne Asteroidy";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
 
         }

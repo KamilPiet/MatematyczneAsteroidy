@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+//using AForge.Imaging.Filters; //http://www.aforgenet.com/projects/iplab/downloads.html
 
 namespace MatematyczneAsteroidy
 {
