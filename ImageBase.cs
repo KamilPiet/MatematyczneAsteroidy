@@ -25,6 +25,21 @@ namespace MatematyczneAsteroidy
             get { return Y; }
             set { Y = value; }
         }
+
+        private double xVel;
+        private double yVel;
+
+        public double VelX
+        {
+            get { return xVel; }
+            set { xVel = value; }
+        }
+        public double VelY
+        {
+            get { return yVel; }
+            set { yVel = value; }
+        }
+
         public ImageBase(Bitmap _resource)
         {
             _bitmap = new Bitmap(_resource);

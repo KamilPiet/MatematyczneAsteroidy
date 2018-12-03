@@ -50,7 +50,26 @@ namespace MatematyczneAsteroidy
 
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
-            //SpaceShip.Update(100, 100);
+            if (SpaceShip.angleIncrease)
+                SpaceShip.angle += 0.1;
+            if (SpaceShip.angleDecrease)
+                SpaceShip.angle -= 0.1;
+            if (SpaceShip.accelerate)
+            {
+                SpaceShip.VelX -= 0.1 * Math.Cos(SpaceShip.angle);
+                SpaceShip.VelY -= 0.1 * Math.Sin(SpaceShip.angle);
+            }
+            SpaceShip.Update(SpaceShip.Left + SpaceShip.VelX * timerGameLoop.Interval, SpaceShip.Top + SpaceShip.VelY * timerGameLoop.Interval);
+
+            if (SpaceShip.Left < 0)
+                SpaceShip.Left = Width;
+            else if (SpaceShip.Left > Width)
+                SpaceShip.Left = 0;
+            if (SpaceShip.Top < 0)
+                SpaceShip.Top = Height;
+            else if (SpaceShip.Top > Height)
+                SpaceShip.Top = 0;
+
             foreach (Asteroid a in asteroids)
             {
                 a.Update(a.Left + a.VelX * timerGameLoop.Interval, a.Top + a.VelY * timerGameLoop.Interval);
@@ -65,7 +84,6 @@ namespace MatematyczneAsteroidy
             }
             this.Refresh();
         }
-
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -77,19 +95,35 @@ namespace MatematyczneAsteroidy
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.RShiftKey)
+            switch(e.KeyCode)
             {
-
+                case Keys.K:
+                SpaceShip.accelerate = true;
+                    break;
+                case Keys.D:
+                    SpaceShip.angleIncrease = true;
+                    break;
+                case Keys.A:
+                    SpaceShip.angleDecrease = true;
+                    break;
             }
+                
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            
-        }
-        private void Accelerate()
-        {
-
+            switch (e.KeyCode)
+            {
+                case Keys.K:
+                    SpaceShip.accelerate = false;
+                    break;
+                case Keys.D:
+                    SpaceShip.angleIncrease = false;
+                    break;
+                case Keys.A:
+                    SpaceShip.angleDecrease = false;
+                    break;
+            }
         }
     }
 }
