@@ -35,7 +35,7 @@
             // timerGameLoop
             // 
             this.timerGameLoop.Enabled = true;
-            this.timerGameLoop.Interval = 10;
+            this.timerGameLoop.Interval = 20;
             this.timerGameLoop.Tick += new System.EventHandler(this.timerGameLoop_Tick);
             // 
             // Form1

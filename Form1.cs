@@ -16,32 +16,53 @@ namespace MatematyczneAsteroidy
         Bitmap _h;
         SpaceShip SpaceShip;
         List<Asteroid> asteroids = new List<Asteroid>();
-        int numberOfAsteroids = 30;
+        int numberOfAsteroids = 8;
         public Form1()
         {
-            InitializeComponent();
-            switch (rnd.Next(0, 2))
-            {
-                case 0:
-                    _h = new Bitmap(Properties.Resources.Ast1);
-                    break;
-                case 1:
-                    _h = new Bitmap(Properties.Resources.Ast2);
-                    break;
-                case 2:
-                    _h = new Bitmap(Properties.Resources.Ast3);
-                    break;
-            }
-            SpaceShip = new SpaceShip() { Left = this.Width/2, Top = this.Height/2};
+            InitializeComponent();            
+            SpaceShip = new SpaceShip() { Left = Width/2, Top = Height/2};
             for (int i = 0; i < numberOfAsteroids; i++)
-                asteroids.Add(new Asteroid(_h) { Left = rnd.Next(0, this.Width), Top = rnd.Next(0, this.Height) });
+            {
+                switch (rnd.Next(1, 4))
+                {
+                    case 1:
+                        _h = new Bitmap(Properties.Resources.Ast1);
+                        break;
+                    case 2:
+                        _h = new Bitmap(Properties.Resources.Ast2);
+                        break;
+                    case 3:
+                        _h = new Bitmap(Properties.Resources.Ast3);
+                        break;
+                    default:
+                        _h = new Bitmap(Properties.Resources.Ast3);
+                        break;
+                }
+                asteroids.Add(new Asteroid(_h)
+                {
+                    Left = rnd.Next(0, Width),
+                    Top = rnd.Next(0, Height),
+                    VelX = (rnd.NextDouble() - 0.5)/1,
+                    VelY = (rnd.NextDouble() - 0.5)/1
+                });
+            }
         }
 
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
             //SpaceShip.Update(100, 100);
             foreach (Asteroid a in asteroids)
-                a.Update(a.Left + a.xVel * timerGameLoop.Interval, a.Top + a.yVel * timerGameLoop.Interval);
+            {
+                a.Update(a.Left + a.VelX * timerGameLoop.Interval, a.Top + a.VelY * timerGameLoop.Interval);
+                if (a.Left < 0 - a._AsteroidBox.Width)
+                    a.Left = Width-8;
+                else if (a.Left > Width)
+                    a.Left = 0-a._AsteroidBox.Width;
+                if (a.Top < 0 - a._AsteroidBox.Height)
+                    a.Top = Height-8;
+                else if (a.Top > Height)
+                    a.Top = 0-a._AsteroidBox.Height; 
+            }
             this.Refresh();
         }
 

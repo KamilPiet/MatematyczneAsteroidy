@@ -9,10 +9,21 @@ namespace MatematyczneAsteroidy
 {
     class Asteroid : ImageBase
     {
-        public double xVel = 0.1;
-        public double yVel = -0.1;
+        private double xVel;
+        private double yVel;
 
-        private Rectangle _AsteroidBox = new Rectangle();
+        public double VelX
+        {
+            get { return xVel; }
+            set { xVel = value; }
+        }
+        public double VelY
+        {
+            get { return yVel; }
+            set { yVel = value; }
+        }
+
+        public Rectangle _AsteroidBox = new Rectangle();
 
         public Asteroid(Bitmap _h)
             : base(_h)
