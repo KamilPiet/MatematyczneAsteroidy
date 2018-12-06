@@ -17,6 +17,7 @@ namespace MatematyczneAsteroidy
         SpaceShip SpaceShip;
         List<Asteroid> asteroids = new List<Asteroid>();
         int numberOfAsteroids = 8;
+        double speedScale = 1;
         public Form1()
         {
             InitializeComponent();            
@@ -42,27 +43,21 @@ namespace MatematyczneAsteroidy
                 {
                     Left = rnd.Next(0, Width),
                     Top = rnd.Next(0, Height),
-                    VelX = (rnd.NextDouble() - 0.5)/1,
-                    VelY = (rnd.NextDouble() - 0.5)/1
+                    VelX = (rnd.NextDouble() - 0.5)*speedScale,
+                    VelY = (rnd.NextDouble() - 0.5)*speedScale
                 });
             }
         }
-
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
             if (SpaceShip.angleIncrease)
-                SpaceShip.angle += 0.05;
+                SpaceShip.angle += 0.1;
             if (SpaceShip.angleDecrease)
-                SpaceShip.angle -= 0.05;
+                SpaceShip.angle -= 0.1;
             if (SpaceShip.accelerate)
             {
                 SpaceShip.VelX -= 0.1 * Math.Cos(SpaceShip.angle);
                 SpaceShip.VelY -= 0.1 * Math.Sin(SpaceShip.angle);
-            }
-            if(SpaceShip.angle != SpaceShip.angleOld)
-            {
-                SpaceShip.angleOld = SpaceShip.angle;
-                //SpaceShip.A
             }
             SpaceShip.Update(SpaceShip.Left + SpaceShip.VelX * timerGameLoop.Interval, SpaceShip.Top + SpaceShip.VelY * timerGameLoop.Interval);
             if (SpaceShip.Left < 0)

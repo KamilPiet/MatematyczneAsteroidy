@@ -38,35 +38,29 @@ namespace MatematyczneAsteroidy
         public SpaceShip()
             :base()
         {
-            ax = Left + Properties.Resources.SpaceShip.Width / 2;
-            ay = Top;                                            //Górny wierzchołek
-            bx = Left;
-            by = Top + Properties.Resources.SpaceShip.Height;    //Dolny lewy wierzchołek
-            cx = Left + Properties.Resources.SpaceShip.Width;
-            cy = Top + Properties.Resources.SpaceShip.Height;    //Dolny prawy wierzchołek
-            A = new PointF(ax, ay);
-            B = new PointF(bx, by);
-            C = new PointF(cx, cy);
+            MakeTriangle();
         }
-
-        public void DrawImage(Graphics gr)
-        {
-            gr.FillPolygon(Brushes.White, points);
-        }
-
         public void Update(double X, double Y)
         {
             Left = (int)Math.Round(X);
             Top = (int)Math.Round(Y);
-            ax = Left + Properties.Resources.SpaceShip.Width / 2;
-            ay = Top;                                            //Górny wierzchołek
-            bx = Left;
-            by = Top + Properties.Resources.SpaceShip.Height;    //Dolny lewy wierzchołek
-            cx = Left + Properties.Resources.SpaceShip.Width;
-            cy = Top + Properties.Resources.SpaceShip.Height;    //Dolny prawy wierzchołek
+            MakeTriangle();
+        }
+        private void MakeTriangle()
+        {
+            ax = (float)(Left - 25 * Math.Cos(angle));
+            ay = (float)(Top - 25 * Math.Sin(angle));    //Górny wierzchołek
+            bx = (float)(Left - 30 * Math.Cos(angle + 3f * Math.PI / 4f));
+            by = (float)(Top - 30 * Math.Sin(angle + 3f * Math.PI / 4f));    //Dolny lewy wierzchołek
+            cx = (float)(Left - 30 * Math.Cos(angle - 3f * Math.PI / 4f));
+            cy = (float)(Top - 30 * Math.Sin(angle - 3f * Math.PI / 4f));    //Dolny prawy wierzchołek
             A = new PointF(ax, ay);
             B = new PointF(bx, by);
             C = new PointF(cx, cy);
+        }
+        public void DrawImage(Graphics gr)
+        {
+            gr.DrawPolygon(Pens.White, points);
         }
         public void Dispose()
         {

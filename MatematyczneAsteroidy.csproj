@@ -85,9 +85,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Graphics\SpaceShip.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Graphics\Ast\Ast1.png" />
   </ItemGroup>
   <ItemGroup>
