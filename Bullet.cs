@@ -7,20 +7,40 @@ using System.Drawing;
 
 namespace MatematyczneAsteroidy
 {
-    class Bullet : ImageBase
+    class Bullet : MovingBase, IDisposable
     {
-        public int xVel = 1;
-        public int yVel = 1;
-
         private Rectangle _BulletBox = new Rectangle();
+        bool disposed = false;
+        Bitmap _bitmap; //handler
 
-        public Bullet()
-            : base(Properties.Resources.Bullet)
+        public Bullet(Bitmap _h)
         {
             this._BulletBox.X = Left;
             this._BulletBox.Y = Top;
             this._BulletBox.Width = 10;
             this._BulletBox.Height = 10;
+            _bitmap = _h;
+        }
+        public void DrawImage(Graphics gr)
+        {
+            gr.DrawImage(_bitmap, Left, Top);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);                  //overloading
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+                _bitmap.Dispose();
+
+            disposed = true;
         }
     }
 }
