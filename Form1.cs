@@ -16,6 +16,8 @@ namespace MatematyczneAsteroidy
         Bitmap _h;
         SpaceShip SpaceShip;
         List<Asteroid> asteroids = new List<Asteroid>();
+        List<Bullet> bullets = new List<Bullet>();
+        int bulletDelay = 10;
         int numberOfAsteroids = 8;
         double speedScale = 1;
         public Form1()
@@ -56,8 +58,8 @@ namespace MatematyczneAsteroidy
                 SpaceShip.angle -= 0.1;
             if (SpaceShip.accelerate)
             {
-                SpaceShip.VelX -= 0.1 * Math.Cos(SpaceShip.angle);
-                SpaceShip.VelY -= 0.1 * Math.Sin(SpaceShip.angle);
+                SpaceShip.VelX -= 0.09 * Math.Cos(SpaceShip.angle);
+                SpaceShip.VelY -= 0.09 * Math.Sin(SpaceShip.angle);
             }
             SpaceShip.Update(SpaceShip.Left + SpaceShip.VelX * timerGameLoop.Interval, SpaceShip.Top + SpaceShip.VelY * timerGameLoop.Interval);
             if (SpaceShip.Left < 0)
@@ -81,6 +83,19 @@ namespace MatematyczneAsteroidy
                 else if (a.Top > Height)
                     a.Top = 0-a._AsteroidBox.Height; 
             }
+            foreach (Bullet a in bullets)
+            {
+                a.Update(a.Left + a.VelX * timerGameLoop.Interval, a.Top + a.VelY * timerGameLoop.Interval);
+                if (a.Left < 0 - a._BulletBox.Width)
+                    a.Left = Width - 8;
+                else if (a.Left > Width)
+                    a.Left = 0 - a._BulletBox.Width;
+                if (a.Top < 0 - a._BulletBox.Height)
+                    a.Top = Height - 8;
+                else if (a.Top > Height)
+                    a.Top = 0 - a._BulletBox.Height;
+            }
+            bulletDelay--;
             this.Refresh();
         }
         protected override void OnPaint(PaintEventArgs e)
@@ -89,9 +104,10 @@ namespace MatematyczneAsteroidy
             SpaceShip.DrawImage(g);
             foreach(Asteroid a in asteroids)
                 a.DrawImage(g);
+            foreach (Bullet a in bullets)
+                a.DrawImage(g);
             base.OnPaint(e);
         }
-
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch(e.KeyCode)
@@ -104,6 +120,19 @@ namespace MatematyczneAsteroidy
                     break;
                 case Keys.A:
                     SpaceShip.angleDecrease = true;
+                    break;
+                case Keys.Space:
+                    if(bulletDelay<=0)
+                    {
+                        bullets.Add(new Bullet(Properties.Resources.Bullet)
+                        {
+                            Left = (int)SpaceShip.A.X - 6,
+                            Top = (int)SpaceShip.A.Y - 6,
+                            VelX = -1 * Math.Cos(SpaceShip.angle),
+                            VelY = -1 * Math.Sin(SpaceShip.angle)
+                        });
+                        bulletDelay = 10;
+                    }
                     break;
             }
         }

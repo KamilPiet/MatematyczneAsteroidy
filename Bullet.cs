@@ -9,17 +9,26 @@ namespace MatematyczneAsteroidy
 {
     class Bullet : MovingBase, IDisposable
     {
-        private Rectangle _BulletBox = new Rectangle();
+        public Rectangle _BulletBox = new Rectangle();
         bool disposed = false;
         Bitmap _bitmap; //handler
 
         public Bullet(Bitmap _h)
         {
-            this._BulletBox.X = Left;
-            this._BulletBox.Y = Top;
-            this._BulletBox.Width = 10;
-            this._BulletBox.Height = 10;
+            _BulletBox.X = Left;
+            _BulletBox.Y = Top;
+            _BulletBox.Width = 10;
+            _BulletBox.Height = 10;
             _bitmap = _h;
+        }
+        public void Update(double X, double Y)
+        {
+            Left = (int)Math.Round(X);
+            Top = (int)Math.Round(Y);
+            _BulletBox.X = Left;
+            _BulletBox.Y = Top;
+            _BulletBox.Width = 10;
+            _BulletBox.Height = 10;
         }
         public void DrawImage(Graphics gr)
         {
