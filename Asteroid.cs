@@ -33,7 +33,6 @@ namespace MatematyczneAsteroidy
         {
             gr.DrawImage(_bitmap, Left, Top);
         }
-
         public void Dispose()
         {
             Dispose(true);                  //overloading

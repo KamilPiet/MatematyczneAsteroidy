@@ -17,9 +17,12 @@ namespace MatematyczneAsteroidy
         SpaceShip SpaceShip;
         List<Asteroid> asteroids = new List<Asteroid>();
         List<Bullet> bullets = new List<Bullet>();
-        int bulletDelay = 10;
-        int numberOfAsteroids = 8;
-        double speedScale = 1;
+        private int bulletDelay = 9;
+        private int numberOfAsteroids = 8;
+        private double speedScale = 1;
+        private int maxLifeTime = 50;
+        private int lifes = 3;
+        private int points = 0;
         public Form1()
         {
             InitializeComponent();            
@@ -71,7 +74,7 @@ namespace MatematyczneAsteroidy
             else if (SpaceShip.Top > Height)
                 SpaceShip.Top = 0;
 
-            foreach (Asteroid a in asteroids)
+            foreach (Asteroid a in asteroids.ToList())
             {
                 a.Update(a.Left + a.VelX * timerGameLoop.Interval, a.Top + a.VelY * timerGameLoop.Interval);
                 if (a.Left < 0 - a._AsteroidBox.Width)
@@ -82,20 +85,55 @@ namespace MatematyczneAsteroidy
                     a.Top = Height-8;
                 else if (a.Top > Height)
                     a.Top = 0-a._AsteroidBox.Height; 
+                foreach (Bullet b in bullets.ToList())
+                {
+                    if (a._AsteroidBox.Contains(b._BulletBox))
+                    {
+                        asteroids.Remove(a);
+                        bullets.Remove(b);
+                        points += 10;
+                    }
+                }
+                if (a._AsteroidBox.Contains((int)SpaceShip.ax, (int)SpaceShip.ay+3) ||
+                    a._AsteroidBox.Contains((int)SpaceShip.bx+3, (int)SpaceShip.by-3) ||
+                    a._AsteroidBox.Contains((int)SpaceShip.cx-3, (int)SpaceShip.cy-3))
+                {
+                    asteroids.Remove(a);
+                    lifes--;
+                    SpaceShip.VelX = 0;
+                    SpaceShip.VelY = 0;
+                    SpaceShip.angle = Math.PI / 2.0;
+                    SpaceShip.Update(Width / 2, Height / 2);
+                }
             }
-            foreach (Bullet a in bullets)
+            foreach (Bullet b in bullets.ToList())
             {
-                a.Update(a.Left + a.VelX * timerGameLoop.Interval, a.Top + a.VelY * timerGameLoop.Interval);
-                if (a.Left < 0 - a._BulletBox.Width)
-                    a.Left = Width - 8;
-                else if (a.Left > Width)
-                    a.Left = 0 - a._BulletBox.Width;
-                if (a.Top < 0 - a._BulletBox.Height)
-                    a.Top = Height - 8;
-                else if (a.Top > Height)
-                    a.Top = 0 - a._BulletBox.Height;
+                b.lifetime++;
+                if (b.lifetime >= maxLifeTime)
+                {
+                    bullets.Remove(b);                    
+                }
+                b.Update(b.Left + b.VelX * timerGameLoop.Interval, b.Top + b.VelY * timerGameLoop.Interval);
+                if (b.Left < 0 - b._BulletBox.Width)
+                    b.Left = Width - 8;
+                else if (b.Left > Width)
+                    b.Left = 0 - b._BulletBox.Width;
+                if (b.Top < 0 - b._BulletBox.Height)
+                    b.Top = Height - 8;
+                else if (b.Top > Height)
+                    b.Top = 0 - b._BulletBox.Height;
             }
             bulletDelay--;
+            if (lifes < 3)
+                pictureBox3.Visible = false;
+            if (lifes < 2)
+                pictureBox2.Visible = false;
+            if (lifes < 1)
+            {
+                pictureBox1.Visible = false;
+                SpaceShip.Update(Width * 2, Height * 2);
+            }
+            label1.Text = points.ToString();
             this.Refresh();
         }
         protected override void OnPaint(PaintEventArgs e)

@@ -29,8 +29,5 @@ namespace MatematyczneAsteroidy
             get { return yVel; }
             set { yVel = value; }
         }
-        public MovingBase()
-        {
-        }
     }
 }
