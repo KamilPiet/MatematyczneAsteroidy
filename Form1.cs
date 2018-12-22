@@ -25,7 +25,8 @@ namespace MatematyczneAsteroidy
         private int points = 0;
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            KeyPreview = true;
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
             for (int i = 0; i < numberOfAsteroids; i++)
             {
@@ -65,26 +66,12 @@ namespace MatematyczneAsteroidy
                 SpaceShip.VelY -= 0.09 * Math.Sin(SpaceShip.angle);
             }
             SpaceShip.Update(SpaceShip.Left + SpaceShip.VelX * timerGameLoop.Interval, SpaceShip.Top + SpaceShip.VelY * timerGameLoop.Interval);
-            if (SpaceShip.Left < 0)
-                SpaceShip.Left = Width;
-            else if (SpaceShip.Left > Width)
-                SpaceShip.Left = 0;
-            if (SpaceShip.Top < 0)
-                SpaceShip.Top = Height;
-            else if (SpaceShip.Top > Height)
-                SpaceShip.Top = 0;
+            WrapAround(SpaceShip);
 
             foreach (Asteroid a in asteroids.ToList())
             {
                 a.Update(a.Left + a.VelX * timerGameLoop.Interval, a.Top + a.VelY * timerGameLoop.Interval);
-                if (a.Left < 0 - a._AsteroidBox.Width)
-                    a.Left = Width-8;
-                else if (a.Left > Width)
-                    a.Left = 0-a._AsteroidBox.Width;
-                if (a.Top < 0 - a._AsteroidBox.Height)
-                    a.Top = Height-8;
-                else if (a.Top > Height)
-                    a.Top = 0-a._AsteroidBox.Height; 
+                WrapAround(a);
                 foreach (Bullet b in bullets.ToList())
                 {
                     if (a._AsteroidBox.Contains(b._BulletBox))
@@ -94,9 +81,9 @@ namespace MatematyczneAsteroidy
                         points += 10;
                     }
                 }
-                if (a._AsteroidBox.Contains((int)SpaceShip.ax, (int)SpaceShip.ay+3) ||
-                    a._AsteroidBox.Contains((int)SpaceShip.bx+3, (int)SpaceShip.by-3) ||
-                    a._AsteroidBox.Contains((int)SpaceShip.cx-3, (int)SpaceShip.cy-3))
+                if (a._AsteroidBox.Contains((int)SpaceShip.A.X, (int)SpaceShip.A.Y+3) ||
+                    a._AsteroidBox.Contains((int)SpaceShip.B.X+3, (int)SpaceShip.B.Y-3) ||
+                    a._AsteroidBox.Contains((int)SpaceShip.C.X-3, (int)SpaceShip.C.Y-3))
                 {
                     asteroids.Remove(a);
                     lifes--;
@@ -114,27 +101,44 @@ namespace MatematyczneAsteroidy
                     bullets.Remove(b);                    
                 }
                 b.Update(b.Left + b.VelX * timerGameLoop.Interval, b.Top + b.VelY * timerGameLoop.Interval);
-                if (b.Left < 0 - b._BulletBox.Width)
-                    b.Left = Width - 8;
-                else if (b.Left > Width)
-                    b.Left = 0 - b._BulletBox.Width;
-                if (b.Top < 0 - b._BulletBox.Height)
-                    b.Top = Height - 8;
-                else if (b.Top > Height)
-                    b.Top = 0 - b._BulletBox.Height;
+                WrapAround(b);
             }
             bulletDelay--;
             if (lifes < 3)
-                pictureBox3.Visible = false;
-            if (lifes < 2)
-                pictureBox2.Visible = false;
-            if (lifes < 1)
             {
-                pictureBox1.Visible = false;
-                SpaceShip.Update(Width * 2, Height * 2);
-            }
+                pictureBox3.Visible = false;
+                if (lifes < 2)
+                {
+                    pictureBox2.Visible = false;
+                    if (lifes < 1)
+                    {
+                        pictureBox1.Visible = false;
+                        //SpaceShip.Update(Width * 2, Height * 2);
+                    }
+                }     
+            }  
             label1.Text = points.ToString();
             this.Refresh();
+        }
+        private void WrapAround(MovingBase obj)
+        {
+            int shift = 0;
+            Type type = obj.GetType();
+            if (type == typeof(SpaceShip))
+                shift = 0;
+            else if (type == typeof(Bullet))
+                shift = 6;
+            else if (type == typeof(Asteroid))
+                shift = 52;
+
+            if (obj.Left < 0 - shift)
+                obj.Left = Width;
+            else if (obj.Left > Width)
+                obj.Left = 0 - shift;
+            if (obj.Top < 0 - shift)
+                obj.Top = Height- label2.Height;
+            else if (obj.Top > Height-label2.Height)
+                obj.Top = 0 - shift;
         }
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -188,6 +192,30 @@ namespace MatematyczneAsteroidy
                     SpaceShip.angleDecrease = false;
                     break;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (panel3.Visible == true)
+                panel3.Visible = false;
+            else
+                panel3.Visible = true;
+            label1.Focus();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

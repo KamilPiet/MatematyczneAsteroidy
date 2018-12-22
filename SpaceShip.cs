@@ -9,7 +9,7 @@ namespace MatematyczneAsteroidy
 {
     class SpaceShip : MovingBase, IDisposable
     {
-        public float ax=0, ay=0, bx=0, by=0, cx=0, cy=0;
+        private float ax=0, ay=0, bx=0, by=0, cx=0, cy=0;
         PointF[] points = new PointF[3];
 
         public double angle = Math.PI / 2.0;
