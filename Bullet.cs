@@ -10,7 +10,6 @@ namespace MatematyczneAsteroidy
     class Bullet : MovingBase
     {
         public Rectangle _BulletBox = new Rectangle();
-        bool disposed = false;
         Bitmap _bitmap; //handler
         public int lifetime = 0;
 

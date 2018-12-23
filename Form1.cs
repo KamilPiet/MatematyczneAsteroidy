@@ -19,7 +19,7 @@ namespace MatematyczneAsteroidy
         List<Bullet> bullets = new List<Bullet>();
         private int bulletDelay = 9;
         private int numberOfAsteroids = 8;
-        private double speedScale = 1;
+        private double speedScale = 0.6;
         private int maxLifeTime = 50;
         private int lifes = 3;
         private int points = 0;
@@ -49,8 +49,9 @@ namespace MatematyczneAsteroidy
                 {
                     Left = rnd.Next(0, Width),
                     Top = rnd.Next(0, Height),
-                    VelX = (rnd.NextDouble() - 0.5)*speedScale,
-                    VelY = (rnd.NextDouble() - 0.5)*speedScale
+                    VelX = (rnd.NextDouble() - 0.5) * speedScale,
+                    VelY = (rnd.NextDouble() - 0.5) * speedScale,
+                    li = rnd.Next(-100, 100)
                 });
             }
         }
@@ -129,7 +130,7 @@ namespace MatematyczneAsteroidy
             else if (type == typeof(Bullet))
                 shift = 6;
             else if (type == typeof(Asteroid))
-                shift = 52;
+                shift = 92;
 
             if (obj.Left < 0 - shift)
                 obj.Left = Width;

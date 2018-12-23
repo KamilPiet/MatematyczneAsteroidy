@@ -10,14 +10,19 @@ namespace MatematyczneAsteroidy
     class Asteroid : MovingBase
     {
         public Rectangle _AsteroidBox = new Rectangle();
-        bool disposed = false;
         Bitmap _bitmap; //handler
+        private int liczba;
+        public int li
+        {
+            get { return liczba; }
+            set { liczba = value; }
+        }
         public Asteroid(Bitmap _h)
         {
             _AsteroidBox.X = Left + 4;
             _AsteroidBox.Y = Top + 4;
-            _AsteroidBox.Width = 52;
-            _AsteroidBox.Height = 52;
+            _AsteroidBox.Width = 92;
+            _AsteroidBox.Height = 92;
             _bitmap = _h;
         }
         public void Update(double X, double Y)
@@ -29,7 +34,10 @@ namespace MatematyczneAsteroidy
         }
         public void DrawImage(Graphics gr)
         {
+            Font font = new Font("Courier New", 16);
+            SolidBrush brush = new SolidBrush(Color.LightGray);
             gr.DrawImage(_bitmap, Left, Top);
+            gr.DrawString(li.ToString(), font, brush, Left + 5*_AsteroidBox.Width / 16, Top + 7*_AsteroidBox.Height / 16);
         }
     }
 }
