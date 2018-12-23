@@ -15,6 +15,7 @@ namespace MatematyczneAsteroidy
         Random rnd = new Random();
         Bitmap _h;
         SpaceShip SpaceShip;
+        Condition Condition;
         List<Asteroid> asteroids = new List<Asteroid>();
         List<Bullet> bullets = new List<Bullet>();
         private int bulletDelay = 9;
@@ -27,7 +28,9 @@ namespace MatematyczneAsteroidy
         {
             InitializeComponent();
             KeyPreview = true;
+            Condition = new Condition(rnd.Next(0, 4));
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
+            label2.Text = Condition.cTopic();
             for (int i = 0; i < numberOfAsteroids; i++)
             {
                 switch (rnd.Next(1, 4))
@@ -47,8 +50,8 @@ namespace MatematyczneAsteroidy
                 }
                 asteroids.Add(new Asteroid(_h)
                 {
-                    Left = rnd.Next(0, Width),
-                    Top = rnd.Next(0, Height),
+                    Left = rnd.Next(10, Width - 10),
+                    Top = rnd.Next(10, Height - 10),
                     VelX = (rnd.NextDouble() - 0.5) * speedScale,
                     VelY = (rnd.NextDouble() - 0.5) * speedScale,
                     li = rnd.Next(-100, 100)
@@ -79,7 +82,12 @@ namespace MatematyczneAsteroidy
                     {
                         asteroids.Remove(a);
                         bullets.Remove(b);
-                        points += 10;
+                        if (Condition.checkC(a.li))
+                        {
+                            points += 10;
+                        }
+                        else
+                            lostLife();
                     }
                 }
                 if (a._AsteroidBox.Contains((int)SpaceShip.A.X, (int)SpaceShip.A.Y+3) ||
@@ -87,11 +95,7 @@ namespace MatematyczneAsteroidy
                     a._AsteroidBox.Contains((int)SpaceShip.C.X-3, (int)SpaceShip.C.Y-3))
                 {
                     asteroids.Remove(a);
-                    lifes--;
-                    SpaceShip.VelX = 0;
-                    SpaceShip.VelY = 0;
-                    SpaceShip.angle = Math.PI / 2.0;
-                    SpaceShip.Update(Width / 2, Height / 2);
+                    lostLife();
                 }
             }
             foreach (Bullet b in bullets.ToList())
@@ -178,6 +182,14 @@ namespace MatematyczneAsteroidy
                     }
                     break;
             }
+        }
+        private void lostLife()
+        {
+            lifes--;
+            SpaceShip.VelX = 0;
+            SpaceShip.VelY = 0;
+            SpaceShip.angle = Math.PI / 2.0;
+            SpaceShip.Update(Width / 2, Height / 2);
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {

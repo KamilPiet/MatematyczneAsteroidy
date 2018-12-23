@@ -9,15 +9,15 @@ namespace MatematyczneAsteroidy
 {
     class MovingBase
     {
-        private int X;
-        private int Y;
+        private int x;
+        private int y;
         public int Left {
-            get { return X; }
-            set { X = value; }
+            get { return x; }
+            set { x = value; }
         }
         public int Top {
-            get { return Y; }
-            set { Y = value; }
+            get { return y; }
+            set { y = value; }
         }
         private double xVel;
         private double yVel;
