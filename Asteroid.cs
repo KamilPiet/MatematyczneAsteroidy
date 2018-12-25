@@ -12,7 +12,7 @@ namespace MatematyczneAsteroidy
         public Rectangle _AsteroidBox = new Rectangle();
         Bitmap _bitmap; //handler
         private int liczba;
-        public int li
+        public int Li
         {
             get { return liczba; }
             set { liczba = value; }
@@ -37,7 +37,7 @@ namespace MatematyczneAsteroidy
             Font font = new Font("Courier New", 16);
             SolidBrush brush = new SolidBrush(Color.LightGray);
             gr.DrawImage(_bitmap, Left, Top);
-            gr.DrawString(li.ToString(), font, brush, Left + 5*_AsteroidBox.Width / 16, Top + 7*_AsteroidBox.Height / 16);
+            gr.DrawString(Li.ToString(), font, brush, Left + 5*_AsteroidBox.Width / 16, Top + 7*_AsteroidBox.Height / 16);
         }
     }
 }

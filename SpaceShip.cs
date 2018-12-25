@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace MatematyczneAsteroidy
 {
-    class SpaceShip : MovingBase, IDisposable
+    class SpaceShip : MovingBase
     {
         private float ax=0, ay=0, bx=0, by=0, cx=0, cy=0;
         PointF[] points = new PointF[3];
@@ -19,7 +19,6 @@ namespace MatematyczneAsteroidy
         public bool angleIncrease = false;
         public bool angleDecrease = false;
 
-        bool disposed = false;
         public PointF A
         {
             get { return points[0]; }
@@ -61,21 +60,6 @@ namespace MatematyczneAsteroidy
         public void DrawImage(Graphics gr)
         {
             gr.DrawPolygon(Pens.White, points);
-        }
-        public void Dispose()
-        {
-            Dispose(true);                  //overloading
-            GC.SuppressFinalize(this);
-        }
-        protected virtual void Dispose(bool disposing)
-        {
-            if (disposed)
-                return;
-
-            if (disposing)
-                return;
-
-            disposed = true;
         }
     }
 }

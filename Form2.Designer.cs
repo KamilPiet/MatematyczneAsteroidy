@@ -56,7 +56,6 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 34);
             this.button1.TabIndex = 11;
-            this.button1.TabStop = false;
             this.button1.Text = "Dalej";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -70,7 +69,6 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 34);
             this.button2.TabIndex = 12;
-            this.button2.TabStop = false;
             this.button2.Text = "Opcje";
             this.button2.UseVisualStyleBackColor = false;
             // 
@@ -83,7 +81,6 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(128, 34);
             this.button4.TabIndex = 14;
-            this.button4.TabStop = false;
             this.button4.Text = "Wyjście";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
@@ -96,8 +93,7 @@
             this.button3.Location = new System.Drawing.Point(568, 555);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 34);
-            this.button3.TabIndex = 15;
-            this.button3.TabStop = false;
+            this.button3.TabIndex = 13;
             this.button3.Text = "Statystyki";
             this.button3.UseVisualStyleBackColor = false;
             // 

@@ -54,9 +54,9 @@ namespace MatematyczneAsteroidy
                     Top = rnd.Next(10, Height - 10),
                     VelX = (rnd.NextDouble() - 0.5) * speedScale,
                     VelY = (rnd.NextDouble() - 0.5) * speedScale,
-                    li = rnd.Next(-100, 100)
+                    Li = rnd.Next(-100, 100)
                 });
-                if (Condition.checkC(asteroids[i].li))
+                if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
             }
         }
@@ -84,7 +84,7 @@ namespace MatematyczneAsteroidy
                     {
                         asteroids.Remove(a);
                         bullets.Remove(b);
-                        if (Condition.checkC(a.li))
+                        if (Condition.checkC(a.Li))
                         {
                             Program.points += 10;
                             astLeft--;
@@ -99,7 +99,7 @@ namespace MatematyczneAsteroidy
                 {
                     asteroids.Remove(a);
                     lostLife();
-                    if (Condition.checkC(a.li))
+                    if (Condition.checkC(a.Li))
                         astLeft--;
                 }
             }
