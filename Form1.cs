@@ -23,7 +23,7 @@ namespace MatematyczneAsteroidy
         private double speedScale = 0.6;
         private int maxLifeTime = 50;
         private int lifes = 3;
-        private int points = 0;
+        private int astLeft = 0;
         public Form1()
         {
             InitializeComponent();
@@ -56,14 +56,16 @@ namespace MatematyczneAsteroidy
                     VelY = (rnd.NextDouble() - 0.5) * speedScale,
                     li = rnd.Next(-100, 100)
                 });
+                if (Condition.checkC(asteroids[i].li))
+                    astLeft++;
             }
         }
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
             if (SpaceShip.angleIncrease)
-                SpaceShip.angle += 0.1;
+                SpaceShip.angle += 0.15;
             if (SpaceShip.angleDecrease)
-                SpaceShip.angle -= 0.1;
+                SpaceShip.angle -= 0.15;
             if (SpaceShip.accelerate)
             {
                 SpaceShip.VelX -= 0.09 * Math.Cos(SpaceShip.angle);
@@ -84,7 +86,8 @@ namespace MatematyczneAsteroidy
                         bullets.Remove(b);
                         if (Condition.checkC(a.li))
                         {
-                            points += 10;
+                            Program.points += 10;
+                            astLeft--;
                         }
                         else
                             lostLife();
@@ -96,6 +99,8 @@ namespace MatematyczneAsteroidy
                 {
                     asteroids.Remove(a);
                     lostLife();
+                    if (Condition.checkC(a.li))
+                        astLeft--;
                 }
             }
             foreach (Bullet b in bullets.ToList())
@@ -122,7 +127,10 @@ namespace MatematyczneAsteroidy
                     }
                 }     
             }  
-            label1.Text = points.ToString();
+            label1.Text = Program.points.ToString();
+            label4.Text = Program.stage.ToString();
+            if (astLeft == 0)
+                this.Close();
             this.Refresh();
         }
         private void WrapAround(MovingBase obj)
@@ -228,7 +236,7 @@ namespace MatematyczneAsteroidy
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Environment.Exit(1);
         }
     }
 }
