@@ -27,7 +27,7 @@ namespace MatematyczneAsteroidy
                     topic = "Liczby nieparzyste";
                     break;
                 case 2:
-                    tVal = rnd.Next(2, 5);
+                    tVal = rnd.Next(3, 5);
                     topic = "Liczby podzielne przez " + tVal;
                     break;
                 case 3:

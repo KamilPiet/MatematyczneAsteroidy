@@ -19,15 +19,19 @@ namespace MatematyczneAsteroidy
         List<Asteroid> asteroids = new List<Asteroid>();
         List<Bullet> bullets = new List<Bullet>();
         private int bulletDelay = 9;
-        private int numberOfAsteroids = 8;
-        private double speedScale = 0.6;
+        private int numberOfAsteroids = 6;
         private int maxLifeTime = 50;
         private int lifes = 3;
         private int astLeft = 0;
+        private double speedScale = 0.6;
+        private bool finalScreenS = false;
         public Form1()
         {
             InitializeComponent();
             KeyPreview = true;
+            finalScreenS = false;
+            Program.nF = false;
+            numberOfAsteroids += Program.stage / 2;
             Condition = new Condition(rnd.Next(0, 4));
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
             label2.Text = Condition.cTopic();
@@ -58,6 +62,15 @@ namespace MatematyczneAsteroidy
                 });
                 if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
+            }
+            while (astLeft == 0) // aby co najmniej jedna asteroida spelniala kryterium
+            {
+                foreach (Asteroid a in asteroids.ToList())
+                {
+                    a.Li = rnd.Next(-100, 100);
+                    if (Condition.checkC(a.Li))
+                        astLeft++;
+                }
             }
         }
         private void timerGameLoop_Tick(object sender, EventArgs e)
@@ -123,15 +136,25 @@ namespace MatematyczneAsteroidy
                     if (lifes < 1)
                     {
                         pictureBox1.Visible = false;
-                        //SpaceShip.Update(Width * 2, Height * 2);
+                        if(!finalScreenS)
+                        {
+                            finalScreenS = true;
+                            Form f4 = new Form4();
+                            f4.ShowDialog();
+                            Program.nF = false;
+                            Close();
+                        }
                     }
                 }     
             }  
             label1.Text = Program.points.ToString();
             label4.Text = Program.stage.ToString();
             if (astLeft == 0)
-                this.Close();
-            this.Refresh();
+            {
+                Program.nF = true;
+                Close();
+            }
+            Refresh();
         }
         private void WrapAround(MovingBase obj)
         {
@@ -226,7 +249,8 @@ namespace MatematyczneAsteroidy
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            Form f5 = new Form5();
+            f5.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
