@@ -23,15 +23,19 @@ namespace MatematyczneAsteroidy
         private int maxLifeTime = 50;
         private int lifes = 3;
         private int astLeft = 0;
+        private int timeLimit = 30;
+        public static double gameTime = 0;
         private double speedScale = 0.6;
-        private bool finalScreenS = false;
+        private bool finalScreenShowed = false;
         public Form1()
         {
             InitializeComponent();
             KeyPreview = true;
-            finalScreenS = false;
-            Program.nF = false;
-            numberOfAsteroids += Program.stage / 2;
+            finalScreenShowed = false;
+            Program.nextLvl = false;
+            timeLimit += ((Program.stage - 1) / 2) * 5;
+            gameTime = 0;
+            numberOfAsteroids += (Program.stage - 1) / 2;
             Condition = new Condition(rnd.Next(0, 4));
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
             label2.Text = Condition.cTopic();
@@ -62,6 +66,12 @@ namespace MatematyczneAsteroidy
                 });
                 if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
+                while (asteroids[i].VelX == 0)
+                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * speedScale;
+                while (asteroids[i].VelY == 0)
+                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * speedScale; 
+                /* aby asteroidy zawsze poruszaly sie w dwoch wymiarach, dzieki
+                   temu nie zostana schowane poza ekranem */
             }
             while (astLeft == 0) // aby co najmniej jedna asteroida spelniala kryterium
             {
@@ -75,6 +85,8 @@ namespace MatematyczneAsteroidy
         }
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
+            gameTime += timerGameLoop.Interval / 650.0; //dopasowanie interwalu do zliczania mijających sekund
+            label5.Text = Math.Round(timeLimit - gameTime, 0).ToString();
             if (SpaceShip.angleIncrease)
                 SpaceShip.angle += 0.15;
             if (SpaceShip.angleDecrease)
@@ -136,12 +148,12 @@ namespace MatematyczneAsteroidy
                     if (lifes < 1)
                     {
                         pictureBox1.Visible = false;
-                        if(!finalScreenS)
+                        if(!finalScreenShowed)
                         {
-                            finalScreenS = true;
+                            finalScreenShowed = true;
                             Form f4 = new Form4();
                             f4.ShowDialog();
-                            Program.nF = false;
+                            Program.nextLvl = false;
                             Close();
                         }
                     }
@@ -151,7 +163,7 @@ namespace MatematyczneAsteroidy
             label4.Text = Program.stage.ToString();
             if (astLeft == 0)
             {
-                Program.nF = true;
+                Program.nextLvl = true;
                 Close();
             }
             Refresh();

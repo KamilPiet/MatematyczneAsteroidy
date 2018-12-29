@@ -10,7 +10,8 @@ namespace MatematyczneAsteroidy
     {
         public static int points = 0;
         public static int stage = 1;
-        public static bool nF = true;
+        public static double totalGameTime = 0;
+        public static bool nextLvl = true;
 
         [STAThread]
         static void Main()
@@ -21,7 +22,8 @@ namespace MatematyczneAsteroidy
             while (true)
             {
                 Application.Run(new Form1());
-                if(nF)
+                totalGameTime += Form1.gameTime;
+                if(nextLvl)
                 {
                     stage++;
                     Application.Run(new Form2());
@@ -30,6 +32,7 @@ namespace MatematyczneAsteroidy
                 {
                     points = 0;
                     stage = 1;
+                    totalGameTime = 0;
                     Application.Run(new Form3());
                 }
             }

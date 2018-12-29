@@ -8,17 +8,17 @@ namespace MatematyczneAsteroidy
 {
     class Condition
     {
-        private int tNumber;
-        private int tVal;
+        private int topicNumber;
+        private int topicValue;
         public Condition(int tNumber)
         {
-            this.tNumber = tNumber;
+            topicNumber = tNumber;
         }
         public string cTopic()
         {
             Random rnd = new Random();
             string topic;
-            switch(tNumber)
+            switch(topicNumber)
             {
                 case 0:
                     topic = "Liczby parzyste";
@@ -27,16 +27,16 @@ namespace MatematyczneAsteroidy
                     topic = "Liczby nieparzyste";
                     break;
                 case 2:
-                    tVal = rnd.Next(3, 5);
-                    topic = "Liczby podzielne przez " + tVal;
+                    topicValue = rnd.Next(3, 5);
+                    topic = "Liczby podzielne przez " + topicValue;
                     break;
                 case 3:
-                    tVal = rnd.Next(-90, 50);
-                    topic = "Liczby większe od " + tVal;
+                    topicValue = rnd.Next(-90, 50);
+                    topic = "Liczby większe od " + topicValue;
                     break;
                 case 4:
-                    tVal = rnd.Next(-50, 90);
-                    topic = "Liczby mniejsze od " + tVal;
+                    topicValue = rnd.Next(-50, 90);
+                    topic = "Liczby mniejsze od " + topicValue;
                     break;
                 default:
                     topic = "Liczby parzyste";
@@ -47,7 +47,7 @@ namespace MatematyczneAsteroidy
         public bool checkC(int x)
         {
             bool c = true; ;
-            switch (tNumber)
+            switch (topicNumber)
             {
                 case 0:
                     if (x % 2 == 0)
@@ -62,19 +62,19 @@ namespace MatematyczneAsteroidy
                         c = false;
                     break;
                 case 2:
-                    if (x % tVal == 0)
+                    if (x % topicValue == 0)
                         c = true;
                     else
                         c = false;
                     break;
                 case 3:
-                    if (x > tVal)
+                    if (x > topicValue)
                         c = true;
                     else
                         c = false;
                     break;
                 case 4:
-                    if (x < tVal)
+                    if (x < topicValue)
                         c = true;
                     else
                         c = false;
