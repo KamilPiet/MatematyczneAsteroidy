@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
-    public partial class Form1 : Form
+    public partial class Game : Form
     {
         Random rnd = new Random();
         Bitmap _h;
@@ -23,8 +23,9 @@ namespace MatematyczneAsteroidy
         private int lifes = 3;
         private int astLeft = 0;
         public static double gameTime = 0;
+
         private bool finalScreenShowed = false;
-        public Form1()
+        public Game()
         {
             InitializeComponent();
             KeyPreview = true;
@@ -107,6 +108,7 @@ namespace MatematyczneAsteroidy
                         if (Condition.checkC(a.Li))
                         {
                             Program.points += 10;
+                            Program.totalPoints += 10;
                             astLeft--;
                         }
                         else
@@ -154,7 +156,10 @@ namespace MatematyczneAsteroidy
                 Program.nextLvl = true;
                 Close();
             }
-            gameTime += timerGameLoop.Interval / 650.0; //dopasowanie interwalu do zliczania mijajacych sekund
+            double unitTick = timerGameLoop.Interval / 650.0; //dopasowanie interwalu do zliczania mijajacych sekund
+            gameTime += unitTick;
+            Program.totalGameTime += unitTick;
+            Program.totalTime += unitTick;
             label5.Text = Math.Round(Program.timeLimit - gameTime, 0).ToString();
             if ((int)gameTime == Program.timeLimit && !finalScreenShowed)
                 lostGame();
@@ -200,16 +205,15 @@ namespace MatematyczneAsteroidy
         }
         private void lostGame()
         {
-            SpaceShip.Update(1280, 1024);
             finalScreenShowed = true;
-            Form f4 = new Form4();
-            f4.ShowDialog();
             Program.nextLvl = false;
             Close();
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            switch(e.KeyCode)
+            panel3.Visible = false;
+            label1.Focus();
+            switch (e.KeyCode)
             {
                 case Keys.K:
                 SpaceShip.accelerate = true;
@@ -262,13 +266,14 @@ namespace MatematyczneAsteroidy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form f5 = new Form5();
+            Form f5 = new Options();
             f5.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            Form f6 = new Statistics();
+            f6.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)

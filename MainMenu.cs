@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
-    public partial class Form3 : Form
+    public partial class MainMenu : Form
     {
-        public Form3()
+        public MainMenu()
         {
             InitializeComponent();
         }
@@ -29,8 +29,14 @@ namespace MatematyczneAsteroidy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form f5 = new Form5();
+            Form f5 = new Options();
             f5.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form f6 = new Statistics();
+            f6.ShowDialog();
         }
     }
 }

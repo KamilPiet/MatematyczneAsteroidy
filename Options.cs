@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
-    public partial class Form5 : Form
+    public partial class Options : Form
     {
-        public Form5()
+        public Options()
         {
             InitializeComponent();
             switch((int)(100.0*Program.speedScale))

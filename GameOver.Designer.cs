@@ -1,6 +1,6 @@
 ﻿namespace MatematyczneAsteroidy
 {
-    partial class Form4
+    partial class GameOver
     {
         /// <summary>
         /// Required designer variable.
@@ -36,6 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -69,7 +70,7 @@
             this.label5.BackColor = System.Drawing.Color.Black;
             this.label5.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(771, 361);
+            this.label5.Location = new System.Drawing.Point(771, 360);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 30);
             this.label5.TabIndex = 27;
@@ -81,7 +82,7 @@
             this.label6.BackColor = System.Drawing.Color.Black;
             this.label6.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(771, 391);
+            this.label6.Location = new System.Drawing.Point(771, 390);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(45, 30);
             this.label6.TabIndex = 26;
@@ -93,7 +94,7 @@
             this.label7.BackColor = System.Drawing.Color.Black;
             this.label7.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(771, 421);
+            this.label7.Location = new System.Drawing.Point(771, 420);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(29, 30);
             this.label7.TabIndex = 25;
@@ -105,7 +106,7 @@
             this.label4.BackColor = System.Drawing.Color.Black;
             this.label4.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(441, 421);
+            this.label4.Location = new System.Drawing.Point(441, 420);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 30);
             this.label4.TabIndex = 24;
@@ -117,11 +118,11 @@
             this.label3.BackColor = System.Drawing.Color.Black;
             this.label3.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(441, 391);
+            this.label3.Location = new System.Drawing.Point(441, 390);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(301, 30);
+            this.label3.Size = new System.Drawing.Size(141, 30);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Całkowity czas gry";
+            this.label3.Text = "Czas gry";
             // 
             // label2
             // 
@@ -129,11 +130,23 @@
             this.label2.BackColor = System.Drawing.Color.Black;
             this.label2.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(441, 361);
+            this.label2.Location = new System.Drawing.Point(441, 360);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(237, 30);
             this.label2.TabIndex = 22;
             this.label2.Text = "Zdobyte punkty";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Black;
+            this.label8.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(813, 390);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(29, 30);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "s";
             // 
             // Form4
             // 
@@ -142,6 +155,7 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 985);
             this.ControlBox = false;
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -170,5 +184,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
     }
 }

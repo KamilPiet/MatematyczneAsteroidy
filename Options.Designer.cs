@@ -1,6 +1,6 @@
 ﻿namespace MatematyczneAsteroidy
 {
-    partial class Form5
+    partial class Options
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -46,22 +45,11 @@
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
-            this.label1.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(569, 250);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 39);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Opcje";
             // 
             // label2
             // 
@@ -267,12 +255,26 @@
             this.radioButton9.Text = "Duży";
             this.radioButton9.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(569, 250);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(127, 39);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Opcje";
+            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1264, 985);
+            this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label3);
@@ -281,10 +283,12 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form5";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form5";
+            this.Text = "Matematyczne Asteroidy";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -297,8 +301,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton radioButton3;
@@ -316,5 +318,6 @@
         private System.Windows.Forms.RadioButton radioButton7;
         private System.Windows.Forms.RadioButton radioButton8;
         private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.Label label1;
     }
 }
