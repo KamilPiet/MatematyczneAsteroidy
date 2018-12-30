@@ -26,5 +26,11 @@ namespace MatematyczneAsteroidy
         {
             Environment.Exit(1);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form f5 = new Form5();
+            f5.ShowDialog();
+        }
     }
 }

@@ -164,7 +164,7 @@
             this.button4.Size = new System.Drawing.Size(253, 89);
             this.button4.TabIndex = 14;
             this.button4.TabStop = false;
-            this.button4.Text = "Wyjście";
+            this.button4.Text = "Menu Główne";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -210,15 +210,15 @@
             this.label3.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(38, 44);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 39);
+            this.label3.Size = new System.Drawing.Size(149, 39);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Etap";
+            this.label3.Text = "Poziom";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(149, 44);
+            this.label4.Location = new System.Drawing.Point(193, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(171, 39);
             this.label4.TabIndex = 13;

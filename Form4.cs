@@ -15,7 +15,9 @@ namespace MatematyczneAsteroidy
         public Form4()
         {
             InitializeComponent();
-
+            label5.Text = Program.points.ToString();
+            label6.Text = Math.Round(Program.totalGameTime, 0).ToString();
+            label7.Text = Program.stage.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -19,27 +19,24 @@ namespace MatematyczneAsteroidy
         List<Asteroid> asteroids = new List<Asteroid>();
         List<Bullet> bullets = new List<Bullet>();
         private int bulletDelay = 9;
-        private int numberOfAsteroids = 6;
         private int maxLifeTime = 50;
         private int lifes = 3;
         private int astLeft = 0;
-        private int timeLimit = 30;
         public static double gameTime = 0;
-        private double speedScale = 0.6;
         private bool finalScreenShowed = false;
         public Form1()
         {
             InitializeComponent();
             KeyPreview = true;
-            finalScreenShowed = false;
             Program.nextLvl = false;
-            timeLimit += ((Program.stage - 1) / 2) * 5;
+            finalScreenShowed = false;
+            Program.timeLimit += ((Program.stage - 1) / 2) * 5;
             gameTime = 0;
-            numberOfAsteroids += (Program.stage - 1) / 2;
+            Program.numberOfAsteroids += (Program.stage - 1) / 2;
             Condition = new Condition(rnd.Next(0, 4));
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
             label2.Text = Condition.cTopic();
-            for (int i = 0; i < numberOfAsteroids; i++)
+            for (int i = 0; i < Program.numberOfAsteroids; i++)
             {
                 switch (rnd.Next(1, 4))
                 {
@@ -60,18 +57,18 @@ namespace MatematyczneAsteroidy
                 {
                     Left = rnd.Next(10, Width - 10),
                     Top = rnd.Next(10, Height - 10),
-                    VelX = (rnd.NextDouble() - 0.5) * speedScale,
-                    VelY = (rnd.NextDouble() - 0.5) * speedScale,
+                    VelX = (rnd.NextDouble() - 0.5) * Program.speedScale,
+                    VelY = (rnd.NextDouble() - 0.5) * Program.speedScale,
                     Li = rnd.Next(-100, 100)
                 });
                 if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
                 while (asteroids[i].VelX == 0)
-                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * speedScale;
+                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * Program.speedScale;
                 while (asteroids[i].VelY == 0)
-                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * speedScale; 
+                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * Program.speedScale; 
                 /* aby asteroidy zawsze poruszaly sie w dwoch wymiarach, dzieki
-                   temu nie zostana schowane poza ekranem */
+                   czemu nie zostana schowane poza ekranem */
             }
             while (astLeft == 0) // aby co najmniej jedna asteroida spelniala kryterium
             {
@@ -85,8 +82,6 @@ namespace MatematyczneAsteroidy
         }
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
-            gameTime += timerGameLoop.Interval / 650.0; //dopasowanie interwalu do zliczania mijających sekund
-            label5.Text = Math.Round(timeLimit - gameTime, 0).ToString();
             if (SpaceShip.angleIncrease)
                 SpaceShip.angle += 0.15;
             if (SpaceShip.angleDecrease)
@@ -145,17 +140,10 @@ namespace MatematyczneAsteroidy
                 if (lifes < 2)
                 {
                     pictureBox2.Visible = false;
-                    if (lifes < 1)
+                    if (lifes < 1 && !finalScreenShowed)
                     {
                         pictureBox1.Visible = false;
-                        if(!finalScreenShowed)
-                        {
-                            finalScreenShowed = true;
-                            Form f4 = new Form4();
-                            f4.ShowDialog();
-                            Program.nextLvl = false;
-                            Close();
-                        }
+                        lostGame();
                     }
                 }     
             }  
@@ -166,6 +154,10 @@ namespace MatematyczneAsteroidy
                 Program.nextLvl = true;
                 Close();
             }
+            gameTime += timerGameLoop.Interval / 650.0; //dopasowanie interwalu do zliczania mijajacych sekund
+            label5.Text = Math.Round(Program.timeLimit - gameTime, 0).ToString();
+            if ((int)gameTime == Program.timeLimit && !finalScreenShowed)
+                lostGame();
             Refresh();
         }
         private void WrapAround(MovingBase obj)
@@ -198,6 +190,23 @@ namespace MatematyczneAsteroidy
                 a.DrawImage(g);
             base.OnPaint(e);
         }
+        private void lostLife()
+        {
+            lifes--;
+            SpaceShip.VelX = 0;
+            SpaceShip.VelY = 0;
+            SpaceShip.angle = Math.PI / 2.0;
+            SpaceShip.Update(Width / 2, Height / 2);
+        }
+        private void lostGame()
+        {
+            SpaceShip.Update(1280, 1024);
+            finalScreenShowed = true;
+            Form f4 = new Form4();
+            f4.ShowDialog();
+            Program.nextLvl = false;
+            Close();
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             switch(e.KeyCode)
@@ -225,14 +234,6 @@ namespace MatematyczneAsteroidy
                     }
                     break;
             }
-        }
-        private void lostLife()
-        {
-            lifes--;
-            SpaceShip.VelX = 0;
-            SpaceShip.VelY = 0;
-            SpaceShip.angle = Math.PI / 2.0;
-            SpaceShip.Update(Width / 2, Height / 2);
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -272,7 +273,7 @@ namespace MatematyczneAsteroidy
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Environment.Exit(1);
+            lostGame();
         }
     }
 }

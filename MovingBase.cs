@@ -11,21 +11,25 @@ namespace MatematyczneAsteroidy
     {
         private int x;
         private int y;
-        public int Left {
+        public int Left
+        {
             get { return x; }
             set { x = value; }
         }
-        public int Top {
+        public int Top
+        {
             get { return y; }
             set { y = value; }
         }
         private double xVel;
         private double yVel;
-        public double VelX {
+        public double VelX
+        {
             get { return xVel; }
             set { xVel = value; }
         }
-        public double VelY{
+        public double VelY
+        {
             get { return yVel; }
             set { yVel = value; }
         }
