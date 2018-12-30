@@ -10,7 +10,7 @@ namespace MatematyczneAsteroidy
     {
         public static int points = 0;
         public static int stage = 1;
-        public static int numberOfAsteroids = 6;
+        public static int numberOfAsteroids = 7;
         public static int timeLimit = 30;
         public static double speedScale = 0.6;
         public static double totalGameTime = 0;
