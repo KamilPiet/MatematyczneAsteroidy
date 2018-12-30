@@ -48,16 +48,16 @@ namespace MatematyczneAsteroidy
             switch (Program.timeLimit)
             {
                 case 25:
-                    radioButton4.Checked = true;
+                    radioButton7.Checked = true;
                     break;
                 case 30:
-                    radioButton5.Checked = true;
+                    radioButton8.Checked = true;
                     break;
                 case 35:
-                    radioButton6.Checked = true;
+                    radioButton9.Checked = true;
                     break;
                 default:
-                    radioButton5.Checked = true;
+                    radioButton8.Checked = true;
                     break;
             }
         }
