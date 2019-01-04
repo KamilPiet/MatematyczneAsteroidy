@@ -164,7 +164,7 @@
             this.button4.Size = new System.Drawing.Size(253, 89);
             this.button4.TabIndex = 14;
             this.button4.TabStop = false;
-            this.button4.Text = "Menu Główne";
+            this.button4.Text = "Zakończ grę";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -234,7 +234,7 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "00";
             // 
-            // Form1
+            // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -260,7 +260,7 @@
             this.MaximumSize = new System.Drawing.Size(1280, 1024);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 1024);
-            this.Name = "Form1";
+            this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matematyczne Asteroidy";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);

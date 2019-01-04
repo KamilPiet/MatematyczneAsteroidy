@@ -14,11 +14,16 @@ namespace MatematyczneAsteroidy
         public static int maxStage = 1;
         public static int numberOfAsteroids = 7;
         public static int timeLimit = 30;
+        public static int bonusPointsA = 30;
+        public static int bonusPointsB = 40;
+        public static int bonusPointsC = 30;
         public static double speedScale = 0.6;
         public static double totalGameTime = 0; // czas aktualnej gry
         public static double totalTime = 0;     // czas wszystkich gier
         public static bool nextLvl = true;
-        public static Game f1;
+        public static bool timerOff = false;
+        public static bool livesOff = false;
+        public static Game g1;
 
         [STAThread]
         static void Main()
@@ -28,11 +33,12 @@ namespace MatematyczneAsteroidy
             Application.Run(new MainMenu());
             while (true)
             {
-                f1 = new Game();
-                Application.Run(f1);
+                g1 = new Game();
+                Application.Run(g1);
                 if(nextLvl)
                 {
                     stage++;
+                    points += bonusPointsA + bonusPointsB + bonusPointsC;
                     if (stage > maxStage)
                         maxStage = stage;
                     Application.Run(new NextLevel());

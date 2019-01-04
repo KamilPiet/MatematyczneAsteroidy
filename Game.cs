@@ -155,14 +155,21 @@ namespace MatematyczneAsteroidy
             {
                 Program.nextLvl = true;
                 Close();
+                lifes = 3;
             }
             double unitTick = timerGameLoop.Interval / 650.0; //dopasowanie interwalu do zliczania mijajacych sekund
             gameTime += unitTick;
             Program.totalGameTime += unitTick;
             Program.totalTime += unitTick;
             label5.Text = Math.Round(Program.timeLimit - gameTime, 0).ToString();
-            if ((int)gameTime == Program.timeLimit && !finalScreenShowed)
-                lostGame();
+            if (!Program.timerOff)
+            {
+                label5.Visible = true;
+                if ((int)gameTime == Program.timeLimit && !finalScreenShowed)
+                    lostGame();
+            }
+            else
+                label5.Visible = false;
             Refresh();
         }
         private void WrapAround(MovingBase obj)
@@ -197,11 +204,14 @@ namespace MatematyczneAsteroidy
         }
         private void lostLife()
         {
-            lifes--;
-            SpaceShip.VelX = 0;
-            SpaceShip.VelY = 0;
-            SpaceShip.angle = Math.PI / 2.0;
-            SpaceShip.Update(Width / 2, Height / 2);
+            if(!Program.livesOff)
+            {
+                lifes--;
+                SpaceShip.VelX = 0;
+                SpaceShip.VelY = 0;
+                SpaceShip.angle = Math.PI / 2.0;
+                SpaceShip.Update(Width / 2, Height / 2);
+            }
         }
         private void lostGame()
         {
