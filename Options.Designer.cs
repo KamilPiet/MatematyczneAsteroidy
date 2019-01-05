@@ -42,11 +42,11 @@
             this.radioButton6 = new System.Windows.Forms.RadioButton();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.radioButton7 = new System.Windows.Forms.RadioButton();
             this.radioButton8 = new System.Windows.Forms.RadioButton();
             this.radioButton9 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -71,7 +71,7 @@
             this.panel1.Controls.Add(this.radioButton1);
             this.panel1.Location = new System.Drawing.Point(635, 320);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(371, 60);
+            this.panel1.Size = new System.Drawing.Size(412, 60);
             this.panel1.TabIndex = 20;
             // 
             // radioButton3
@@ -79,7 +79,7 @@
             this.radioButton3.AutoSize = true;
             this.radioButton3.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton3.ForeColor = System.Drawing.Color.White;
-            this.radioButton3.Location = new System.Drawing.Point(264, 13);
+            this.radioButton3.Location = new System.Drawing.Point(280, 13);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(95, 34);
             this.radioButton3.TabIndex = 2;
@@ -93,7 +93,7 @@
             this.radioButton2.Checked = true;
             this.radioButton2.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(115, 13);
+            this.radioButton2.Location = new System.Drawing.Point(131, 13);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(143, 34);
             this.radioButton2.TabIndex = 1;
@@ -157,7 +157,7 @@
             this.panel2.Controls.Add(this.radioButton6);
             this.panel2.Location = new System.Drawing.Point(635, 386);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(371, 60);
+            this.panel2.Size = new System.Drawing.Size(412, 60);
             this.panel2.TabIndex = 25;
             // 
             // radioButton4
@@ -178,7 +178,7 @@
             this.radioButton5.Checked = true;
             this.radioButton5.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton5.ForeColor = System.Drawing.Color.White;
-            this.radioButton5.Location = new System.Drawing.Point(115, 12);
+            this.radioButton5.Location = new System.Drawing.Point(131, 13);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(143, 34);
             this.radioButton5.TabIndex = 1;
@@ -191,7 +191,7 @@
             this.radioButton6.AutoSize = true;
             this.radioButton6.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton6.ForeColor = System.Drawing.Color.White;
-            this.radioButton6.Location = new System.Drawing.Point(264, 14);
+            this.radioButton6.Location = new System.Drawing.Point(280, 13);
             this.radioButton6.Name = "radioButton6";
             this.radioButton6.Size = new System.Drawing.Size(95, 34);
             this.radioButton6.TabIndex = 0;
@@ -217,8 +217,20 @@
             this.panel3.Controls.Add(this.radioButton9);
             this.panel3.Location = new System.Drawing.Point(635, 452);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(553, 60);
+            this.panel3.Size = new System.Drawing.Size(590, 60);
             this.panel3.TabIndex = 27;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.radioButton10.ForeColor = System.Drawing.Color.White;
+            this.radioButton10.Location = new System.Drawing.Point(413, 13);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(175, 34);
+            this.radioButton10.TabIndex = 3;
+            this.radioButton10.Text = "Wyłączony";
+            this.radioButton10.UseVisualStyleBackColor = true;
             // 
             // radioButton7
             // 
@@ -227,9 +239,9 @@
             this.radioButton7.ForeColor = System.Drawing.Color.White;
             this.radioButton7.Location = new System.Drawing.Point(14, 14);
             this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(95, 34);
+            this.radioButton7.Size = new System.Drawing.Size(111, 34);
             this.radioButton7.TabIndex = 2;
-            this.radioButton7.Text = "Mały";
+            this.radioButton7.Text = "Niski";
             this.radioButton7.UseVisualStyleBackColor = true;
             // 
             // radioButton8
@@ -238,7 +250,7 @@
             this.radioButton8.Checked = true;
             this.radioButton8.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton8.ForeColor = System.Drawing.Color.White;
-            this.radioButton8.Location = new System.Drawing.Point(115, 12);
+            this.radioButton8.Location = new System.Drawing.Point(131, 13);
             this.radioButton8.Name = "radioButton8";
             this.radioButton8.Size = new System.Drawing.Size(127, 34);
             this.radioButton8.TabIndex = 1;
@@ -251,11 +263,11 @@
             this.radioButton9.AutoSize = true;
             this.radioButton9.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.radioButton9.ForeColor = System.Drawing.Color.White;
-            this.radioButton9.Location = new System.Drawing.Point(248, 12);
+            this.radioButton9.Location = new System.Drawing.Point(280, 14);
             this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(95, 34);
+            this.radioButton9.Size = new System.Drawing.Size(127, 34);
             this.radioButton9.TabIndex = 0;
-            this.radioButton9.Text = "Duży";
+            this.radioButton9.Text = "Wysoki";
             this.radioButton9.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -269,18 +281,6 @@
             this.label1.Size = new System.Drawing.Size(127, 39);
             this.label1.TabIndex = 29;
             this.label1.Text = "Opcje";
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.radioButton10.ForeColor = System.Drawing.Color.White;
-            this.radioButton10.Location = new System.Drawing.Point(349, 14);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(175, 34);
-            this.radioButton10.TabIndex = 3;
-            this.radioButton10.Text = "Wyłączony";
-            this.radioButton10.UseVisualStyleBackColor = true;
             // 
             // checkBox1
             // 
@@ -315,6 +315,7 @@
             this.MinimizeBox = false;
             this.Name = "Options";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matematyczne Asteroidy";
             this.panel1.ResumeLayout(false);

@@ -10,7 +10,7 @@ namespace MatematyczneAsteroidy
     {
         public static int points = 0;
         public static int totalPoints = 0;
-        public static int stage = 1;
+        public static int stage = 0;
         public static int maxStage = 1;
         public static int numberOfAsteroids = 7;
         public static int numberOfAsteroidsMod = 0;
@@ -35,11 +35,12 @@ namespace MatematyczneAsteroidy
             Application.Run(new MainMenu());
             while (true)
             {
+                numberOfAsteroids = 7;
+                timeLimit = 30;
+                stage++;
                 Application.Run(new Game());
-                if(nextLvl)
+                if (nextLvl)
                 {
-                    stage++;
-
                     if(!livesOff)
                     {
                         points += bonusPointsA + bonusPointsB + bonusPointsC;
@@ -49,15 +50,13 @@ namespace MatematyczneAsteroidy
                         maxStage = stage;
                     Application.Run(new NextLevel());
                 }
-                else
+                if (!nextLvl)
                 {
                     Application.Run(new GameOver());
                     Application.Run(new MainMenu());
                     points = 0;
-                    stage = 1;
+                    stage = 0;
                     totalGameTime = 0;
-                    numberOfAsteroids = 7;
-                    timeLimit = 30;
                 }
             }
         }

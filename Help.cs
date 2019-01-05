@@ -10,15 +10,13 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
-    public partial class Statistics : Form
+    public partial class Help : Form
     {
-        public Statistics()
+        public Help()
         {
             InitializeComponent();
-            label5.Text = Program.totalPoints.ToString();
-            label6.Text = Math.Round(Program.totalTime, 0).ToString() + " s";
-            label7.Text = Program.maxStage.ToString();
         }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Close();

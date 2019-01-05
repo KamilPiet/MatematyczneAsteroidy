@@ -58,16 +58,16 @@ namespace MatematyczneAsteroidy
                 {
                     Left = rnd.Next(10, Width - 10),
                     Top = rnd.Next(10, Height - 10),
-                    VelX = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod,
-                    VelY = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod,
+                    VelX = (rnd.NextDouble() - 0.5) * (Program.speedScale + Program.speedScaleMod),
+                    VelY = (rnd.NextDouble() - 0.5) * (Program.speedScale + Program.speedScaleMod),
                     Li = rnd.Next(-100, 100)
                 });
                 if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
-                while (asteroids[i].VelX == 0.0)
-                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod;
-                while (asteroids[i].VelY == 0.0)
-                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod; 
+                while (asteroids[i].VelX < 0.1 && asteroids[i].VelX > -0.1)
+                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * (Program.speedScale + Program.speedScaleMod);
+                while (asteroids[i].VelY < 0.1 && asteroids[i].VelY > -0.1)
+                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * (Program.speedScale + Program.speedScaleMod); 
                 /* aby asteroidy zawsze poruszaly sie w dwoch wymiarach, dzieki
                    czemu nie zostana schowane poza ekranem */
             }
@@ -276,14 +276,14 @@ namespace MatematyczneAsteroidy
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form f5 = new Options();
-            f5.ShowDialog();
+            Form o1 = new Options();
+            o1.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form f6 = new Statistics();
-            f6.ShowDialog();
+            Form s1 = new Statistics();
+            s1.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)

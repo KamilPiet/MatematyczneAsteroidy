@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -39,18 +38,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Black;
-            this.label8.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(837, 390);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 30);
-            this.label8.TabIndex = 53;
-            this.label8.Text = "s";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -58,9 +45,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(770, 360);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 30);
+            this.label5.Size = new System.Drawing.Size(77, 30);
             this.label5.TabIndex = 52;
-            this.label5.Text = "000";
+            this.label5.Text = "0000";
             // 
             // label6
             // 
@@ -80,9 +67,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(770, 420);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 30);
+            this.label7.Size = new System.Drawing.Size(45, 30);
             this.label7.TabIndex = 50;
-            this.label7.Text = "0";
+            this.label7.Text = "00";
             // 
             // label4
             // 
@@ -151,7 +138,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -162,6 +148,7 @@
             this.MinimizeBox = false;
             this.Name = "Statistics";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matematyczne Asteroidy";
             this.ResumeLayout(false);
@@ -170,7 +157,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

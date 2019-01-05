@@ -24,24 +24,25 @@ namespace MatematyczneAsteroidy
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Environment.Exit(1);
+            Program.nextLvl = false;
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form f5 = new Options();
-            f5.ShowDialog();
+            Form o1 = new Options();
+            o1.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form f6 = new Statistics();
-            f6.ShowDialog();
+            Form s1 = new Statistics();
+            s1.ShowDialog();
         }
     }
 }
