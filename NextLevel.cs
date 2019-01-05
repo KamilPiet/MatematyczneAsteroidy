@@ -15,6 +15,10 @@ namespace MatematyczneAsteroidy
         public NextLevel()
         {
             InitializeComponent();
+            if (Program.livesOff)
+                label2.Visible = false;
+            else
+                label2.Visible = true;
             label2.Text = "+ " + (Program.bonusPointsA + Program.bonusPointsB + Program.bonusPointsC).ToString() + " punktów";
         }
 

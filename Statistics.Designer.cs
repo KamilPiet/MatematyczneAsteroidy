@@ -45,7 +45,7 @@
             this.label8.BackColor = System.Drawing.Color.Black;
             this.label8.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(812, 390);
+            this.label8.Location = new System.Drawing.Point(837, 390);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(29, 30);
             this.label8.TabIndex = 53;
@@ -69,9 +69,9 @@
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(770, 390);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 30);
+            this.label6.Size = new System.Drawing.Size(61, 30);
             this.label6.TabIndex = 51;
-            this.label6.Text = "00";
+            this.label6.Text = "000";
             // 
             // label7
             // 
@@ -142,7 +142,7 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form6
+            // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +160,7 @@
             this.Controls.Add(this.label2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Form6";
+            this.Name = "Statistics";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Matematyczne Asteroidy";

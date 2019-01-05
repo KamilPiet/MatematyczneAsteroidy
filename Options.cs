@@ -15,48 +15,48 @@ namespace MatematyczneAsteroidy
         public Options()
         {
             InitializeComponent();
-            switch((int)(100.0*Program.speedScale))
+            switch((int)(100.0*Program.speedScaleMod))
             {
-                case 45:
+                case -15:
                     radioButton1.Checked = true;
                     break;
-                case 60:
+                case 0:
                     radioButton2.Checked = true;
                     break;
-                case 75:
+                case 15:
                     radioButton3.Checked = true;
                     break;
                 default:
                     radioButton2.Checked = true;
                     break;
             }
-            switch ( Program.numberOfAsteroids)
+            switch ( Program.numberOfAsteroidsMod)
             {
-                case 6:
+                case -1:
                     radioButton4.Checked = true;
                     break;
-                case 7:
+                case 0:
                     radioButton5.Checked = true;
                     break;
-                case 8:
+                case 1:
                     radioButton6.Checked = true;
                     break;
                 default:
                     radioButton5.Checked = true;
                     break;
             }
-            switch (Program.timeLimit)
+            switch (Program.timeLimitMod)
             {
-                case 25:
+                case -5:
                     radioButton7.Checked = true;
                     break;
-                case 30:
+                case 0:
                     radioButton8.Checked = true;
                     break;
-                case 35:
+                case 5:
                     radioButton9.Checked = true;
                     break;
-                case 0:
+                case -30:
                     radioButton10.Checked = true;
                     break;
                 default:
@@ -73,57 +73,57 @@ namespace MatematyczneAsteroidy
         {
             if (radioButton1.Checked)
             {
-                Program.speedScale = 0.45;
+                Program.speedScaleMod = -0.15;
                 Program.bonusPointsA = 20;
             }
             else if (radioButton2.Checked)
             {
-                Program.speedScale = 0.6;
+                Program.speedScaleMod = 0;
                 Program.bonusPointsA = 30;
             }
             else if (radioButton3.Checked)
             {
-                Program.speedScale = 0.75;
+                Program.speedScaleMod = 0.15;
                 Program.bonusPointsA = 40;
             }
 
             if (radioButton4.Checked)
             {
-                Program.numberOfAsteroids = 6;
+                Program.numberOfAsteroidsMod = -1;
                 Program.bonusPointsB = 20;
             }
             else if (radioButton5.Checked)
             {
-                Program.numberOfAsteroids = 7;
+                Program.numberOfAsteroidsMod = 0;
                 Program.bonusPointsB = 40;
             }
             else if (radioButton6.Checked)
             {
-                Program.numberOfAsteroids = 8;
+                Program.numberOfAsteroidsMod = 1;
                 Program.bonusPointsB = 60;
             }
 
             if (radioButton7.Checked)
             {
-                Program.timeLimit = 25;
-                Program.bonusPointsC = 10;
+                Program.timeLimitMod = -5;
+                Program.bonusPointsC = 50;
                 Program.timerOff = false;
             }
             else if (radioButton8.Checked)
             {
-                Program.timeLimit = 30;
+                Program.timeLimitMod = 0;
                 Program.bonusPointsC = 30;
                 Program.timerOff = false;
             }
             else if (radioButton9.Checked)
             {
-                Program.timeLimit = 35;
-                Program.bonusPointsC = 50;
+                Program.timeLimitMod = 5;
+                Program.bonusPointsC = 10;
                 Program.timerOff = false;
             }
             else if (radioButton10.Checked)
             {
-                Program.timeLimit = 0;
+                Program.timeLimitMod = -30;
                 Program.bonusPointsC = 0;
                 Program.timerOff = true;
             }

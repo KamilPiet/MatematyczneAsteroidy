@@ -37,7 +37,7 @@ namespace MatematyczneAsteroidy
             Condition = new Condition(rnd.Next(0, 4));
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
             label2.Text = Condition.cTopic();
-            for (int i = 0; i < Program.numberOfAsteroids; i++)
+            for (int i = 0; i < Program.numberOfAsteroids + Program.numberOfAsteroidsMod; i++)
             {
                 switch (rnd.Next(1, 4))
                 {
@@ -58,16 +58,16 @@ namespace MatematyczneAsteroidy
                 {
                     Left = rnd.Next(10, Width - 10),
                     Top = rnd.Next(10, Height - 10),
-                    VelX = (rnd.NextDouble() - 0.5) * Program.speedScale,
-                    VelY = (rnd.NextDouble() - 0.5) * Program.speedScale,
+                    VelX = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod,
+                    VelY = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod,
                     Li = rnd.Next(-100, 100)
                 });
                 if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
-                while (asteroids[i].VelX == 0)
-                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * Program.speedScale;
-                while (asteroids[i].VelY == 0)
-                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * Program.speedScale; 
+                while (asteroids[i].VelX == 0.0)
+                    asteroids[i].VelX = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod;
+                while (asteroids[i].VelY == 0.0)
+                    asteroids[i].VelY = (rnd.NextDouble() - 0.5) * Program.speedScale + Program.speedScaleMod; 
                 /* aby asteroidy zawsze poruszaly sie w dwoch wymiarach, dzieki
                    czemu nie zostana schowane poza ekranem */
             }
@@ -161,11 +161,11 @@ namespace MatematyczneAsteroidy
             gameTime += unitTick;
             Program.totalGameTime += unitTick;
             Program.totalTime += unitTick;
-            label5.Text = Math.Round(Program.timeLimit - gameTime, 0).ToString();
+            label5.Text = Math.Round(Program.timeLimit + Program.timeLimitMod - gameTime, 0).ToString();
             if (!Program.timerOff)
             {
                 label5.Visible = true;
-                if ((int)gameTime == Program.timeLimit && !finalScreenShowed)
+                if ((int)gameTime == Program.timeLimit + Program.timeLimitMod && !finalScreenShowed)
                     lostGame();
             }
             else
