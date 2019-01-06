@@ -27,19 +27,20 @@ namespace MatematyczneAsteroidy
                     topic = "Liczby nieparzyste";
                     break;
                 case 2:
-                    topicValue = rnd.Next(3, 5);
+                    topicValue = rnd.Next(3, 6);
                     topic = "Liczby podzielne przez " + topicValue;
                     break;
                 case 3:
-                    topicValue = rnd.Next(-90, 50);
+                    topicValue = rnd.Next(-90, 51);
                     topic = "Liczby większe od " + topicValue;
                     break;
                 case 4:
-                    topicValue = rnd.Next(-50, 90);
+                    topicValue = rnd.Next(-50, 91);
                     topic = "Liczby mniejsze od " + topicValue;
                     break;
                 default:
-                    topic = "Liczby parzyste";
+                    topicValue = rnd.Next(3, 6);
+                    topic = "Liczby podzielne przez " + topicValue;
                     break;
             }
             return topic;

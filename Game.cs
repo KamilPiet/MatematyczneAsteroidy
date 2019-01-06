@@ -33,7 +33,7 @@ namespace MatematyczneAsteroidy
             Program.timeLimit += ((Program.stage - 1) / 2) * 5;
             gameTime = 0;
             Program.numberOfAsteroids += (Program.stage - 1) / 2;
-            Condition = new Condition(rnd.Next(0, 4));
+            Condition = new Condition(rnd.Next(0, 5));
             SpaceShip = new SpaceShip() { Left = Width / 2, Top = Height / 2 };
             label2.Text = Condition.cTopic();
             for (int i = 0; i < Program.numberOfAsteroids + Program.numberOfAsteroidsMod; i++)
@@ -55,11 +55,11 @@ namespace MatematyczneAsteroidy
                 }
                 asteroids.Add(new Asteroid(_h)
                 {
-                    Left = rnd.Next(10, Width - 10),
-                    Top = rnd.Next(10, Height - 10),
+                    Left = rnd.Next(10, Width - 9),
+                    Top = rnd.Next(10, Height - 9),
                     VelX = (rnd.NextDouble() - 0.5) * (Program.speedScale + Program.speedScaleMod),
                     VelY = (rnd.NextDouble() - 0.5) * (Program.speedScale + Program.speedScaleMod),
-                    Li = rnd.Next(-100, 100)
+                    Li = rnd.Next(-100, 101)
                 });
                 if (Condition.checkC(asteroids[i].Li))
                     astLeft++;
@@ -74,7 +74,7 @@ namespace MatematyczneAsteroidy
             {
                 foreach (Asteroid a in asteroids.ToList())
                 {
-                    a.Li = rnd.Next(-100, 100);
+                    a.Li = rnd.Next(-100, 101);
                     if (Condition.checkC(a.Li))
                         astLeft++;
                 }
