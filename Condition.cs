@@ -6,14 +6,20 @@ using System.Threading.Tasks;
 
 namespace MatematyczneAsteroidy
 {
+    /// <summary>Klasa odpowiedzialna za wybieranie polecenia na danym poziomie oraz za sprawdzanie warunku przy trafieniu asteroidy</summary>
     class Condition
     {
+        /// <summary>Numer polecenia</summary>
         private int topicNumber;
+        /// <summary>Zmienna używana do sprecyzowania niektorych poleceń</summary>
         private int topicValue;
+        /// <summary>Konstruktor przypisuje numer polecenia</summary>
+        /// <param name="tNumber">Numer polecenia, który ma zostać przypisany</param>
         public Condition(int tNumber)
         {
             topicNumber = tNumber;
         }
+        /// <summary>Metoda wybierająca polecenie</summary>
         public string cTopic()
         {
             Random rnd = new Random();
@@ -45,6 +51,8 @@ namespace MatematyczneAsteroidy
             }
             return topic;
         }
+        /// <summary>Metoda sprawdzająca warunek przy trafieniu asteroidy</summary>
+        /// <param name="x">Liczba przypisana do trafionej asteroidy</param>
         public bool checkC(int x)
         {
             bool c = true; ;

@@ -10,20 +10,33 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
+    /// <summary>Klasa odpowiedzialna za właściwą grę</summary>
     public partial class Game : Form
     {
         Random rnd = new Random();
+        /// <summary>Zawiera informacje o grafice przypisanej do obiektu</summary>
         Bitmap _h;
+        /// <summary>Obiekt reprezntujący statek kosmiczny sterowany przez gracza</summary>
         SpaceShip SpaceShip;
+        /// <summary>Obiekt reprezentujący warunek / polecenie na danym poziomie</summary>
         Condition Condition;
+        /// <summary>Lista zawierająca asteroidy</summary>
         List<Asteroid> asteroids = new List<Asteroid>();
+        /// <summary>Lista zawierająca pociski</summary>
         List<Bullet> bullets = new List<Bullet>();
+        /// <summary>Odstęp czasowy między kolejnymi wystrzelonymi pociskami</summary>
         private int bulletDelay = 9;
+        /// <summary>Maksymalny czas życia pocisku</summary>
         private int maxLifeTime = 50;
+        /// <summary>Liczba  żyć</summary>
         private int lifes = 3;
+        /// <summary>Liczba asteroid spełniających warunek, które zostały do zestrzelenia</summary>
         private int astLeft = 0;
+        /// <summary>Czas trwania aktualnego poziomu</summary>
         public static double gameTime = 0;
+        /// <summary>Flaga - czy został wyświetlony ekran po utracie wszystkich żyć</summary>
         private bool finalScreenShowed = false;
+        /// <summary>Konstruktor przygotowuje polecenie na dany poziom, generuje ruch asteroid i umieszcza statek kosmiczny w początkowej lokalizacji</summary>
         public Game()
         {
             InitializeComponent();
@@ -80,6 +93,7 @@ namespace MatematyczneAsteroidy
                 }
             }
         }
+        /// <summary>Metoda odpowiedzialna za mechanikę gry</summary>
         private void timerGameLoop_Tick(object sender, EventArgs e)
         {
             if (SpaceShip.angleIncrease)
@@ -171,6 +185,8 @@ namespace MatematyczneAsteroidy
                 label5.Visible = false;
             Refresh();
         }
+        /// <summary>Metoda odpowiedzialna przenoszenie obiektow, w momencie wyjścia za krawędź, do przeciwnej krawędzi</summary>
+        /// <param name="obj">Ruchomy obiekt (asteroida, pocisk lub statek kosmiczny)</param>
         private void WrapAround(MovingBase obj)
         {
             int shift = 0;
@@ -191,6 +207,7 @@ namespace MatematyczneAsteroidy
             else if (obj.Top > Height-label2.Height)
                 obj.Top = 0 - shift;
         }
+        /// <summary>Metoda odpowiedzialna za rysowanie obiektów w polu gry</summary>
         protected override void OnPaint(PaintEventArgs e)
         {
             Graphics g = e.Graphics;
@@ -201,6 +218,7 @@ namespace MatematyczneAsteroidy
                 a.DrawImage(g);
             base.OnPaint(e);
         }
+        /// <summary>Metoda wykonywana w momencie utraty życia</summary>
         private void lostLife()
         {
             if(!Program.livesOff)
@@ -212,12 +230,14 @@ namespace MatematyczneAsteroidy
                 SpaceShip.Update(Width / 2, Height / 2);
             }
         }
+        /// <summary>Metoda wykonywana w momencie zakończenia gry</summary>
         private void lostGame()
         {
             finalScreenShowed = true;
             Program.nextLvl = false;
             Close();
         }
+        /// <summary>Metoda obsługująca wciśnięcie klawisza</summary>
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             panel3.Visible = false;
@@ -249,6 +269,7 @@ namespace MatematyczneAsteroidy
                     break;
             }
         }
+        /// <summary>Metoda obsługująca puszczenie klawisza</summary>
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -264,7 +285,7 @@ namespace MatematyczneAsteroidy
                     break;
             }
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Menu"</summary>
         private void button1_Click(object sender, EventArgs e)
         {
             if (panel3.Visible == true)
@@ -279,19 +300,19 @@ namespace MatematyczneAsteroidy
             }
             label1.Focus();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Opcje"</summary>
         private void button2_Click(object sender, EventArgs e)
         {
             Form o1 = new Options();
             o1.ShowDialog();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Statyski"</summary>
         private void button3_Click(object sender, EventArgs e)
         {
             Form s1 = new Statistics();
             s1.ShowDialog();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Zakończ grę"</summary>
         private void button4_Click(object sender, EventArgs e)
         {
             lostGame();

@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
+    /// <summary>Okno, w którym można zmieniać opcje gry</summary>
     public partial class Options : Form
     {
+        /// <summary>Metoda odpowiedzialna za wyświetlanie i przetwarzania informacji w tym oknie</summary>
         public Options()
         {
             InitializeComponent();
@@ -69,6 +71,7 @@ namespace MatematyczneAsteroidy
             else
                 checkBox1.Checked = false;
         }
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Zastosuj"</summary>
         private void button1_Click(object sender, EventArgs e)
         {
             if (radioButton1.Checked)
@@ -137,6 +140,7 @@ namespace MatematyczneAsteroidy
                 
             Close();
         }
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Powrót"</summary>
         private void button2_Click(object sender, EventArgs e)
         {
             Close();

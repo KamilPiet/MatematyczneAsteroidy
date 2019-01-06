@@ -7,33 +7,53 @@ using System.Drawing;
 
 namespace MatematyczneAsteroidy
 {
+    /// <summary>Klasa modelująca statek kosmiczny</summary>
     class SpaceShip : MovingBase
     {
-        private float ax=0, ay=0, bx=0, by=0, cx=0, cy=0;
+        /// <summary>Składowa odcięta górnego wierzchołka statku kosmicznego</summary>
+        private float ax = 0;
+        /// <summary>Składowa rzędna górnego wierzchołka statku kosmicznego</summary>
+        private float ay = 0;
+        /// <summary>Składowa odcięta dolnego lewego wierzchołka statku kosmicznego</summary>
+        private float bx = 0;
+        /// <summary>Składowa rzędna dolnego lewego wierzchołka statku kosmicznego</summary>
+        private float by = 0;
+        /// <summary>Składowa odcięta dolnego prawego wierzchołka statku kosmicznego</summary>
+        private float cx = 0;
+        /// <summary>Składowa rzędna dolnego prawego wierzchołka statku kosmicznego</summary>
+        private float cy = 0;
+        /// <summary>Zbiór punktów opisujących statek kosmiczny</summary>
         PointF[] points = new PointF[3];
-
+        /// <summary>Aktualny kąt obrotu statku</summary>
         public double angle = Math.PI / 2.0;
+        /// <summary>Poprzedni kąt obrotu statku</summary>
         public double angleOld = Math.PI / 2.0;
-
+        /// <summary>Flaga - czy statek ma przyspieszać</summary>
         public bool accelerate = false;
+        /// <summary>Flaga - czy zwiększyć kąt obrotu statku</summary>
         public bool angleIncrease = false;
+        /// <summary>Flaga - czy zmniejszyć kąt obrotu statku</summary>
         public bool angleDecrease = false;
 
+        /// <summary>Górny wierzchołek statku</summary>
         public PointF A
         {
             get { return points[0]; }
             set { points[0] = value; }
         }
+        /// <summary>Dolny lewy wierzchołek statku</summary>
         public PointF B
         {
             get { return points[1]; }
             set { points[1] = value; }
         }
+        /// <summary>Dolny prawy wierzchołek statku</summary>
         public PointF C
         {
             get { return points[2]; }
             set { points[2] = value; }
         }
+        /// <summary></summary>
         public SpaceShip()
             :base()
         {

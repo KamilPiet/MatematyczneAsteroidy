@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
+    /// <summary>Okno wyświetlane po przejściu na następny poziom</summary>
     public partial class NextLevel : Form
     {
+        /// <summary>Metoda odpowiedzialna za wyświetlenia właściwych informacji w oknie</summary>
         public NextLevel()
         {
             InitializeComponent();
@@ -41,24 +43,24 @@ namespace MatematyczneAsteroidy
             else
                 pictureBox1.Visible = false;
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Dalej"</summary>
         private void button1_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Zakończ grę"</summary>
         private void button4_Click(object sender, EventArgs e)
         {
             Program.nextLvl = false;
             Close();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Opcje"</summary>
         private void button2_Click(object sender, EventArgs e)
         {
             Form o1 = new Options();
             o1.ShowDialog();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Statystyki"</summary>
         private void button3_Click(object sender, EventArgs e)
         {
             Form s1 = new Statistics();
