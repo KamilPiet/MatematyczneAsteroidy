@@ -20,6 +20,26 @@ namespace MatematyczneAsteroidy
             else
                 label2.Visible = true;
             label2.Text = "+ " + (Program.bonusPointsA + Program.bonusPointsB + Program.bonusPointsC).ToString() + " punktów";
+            if (Program.totalPoints >= 100 && !Program.trophy1Showed)
+            {
+                Program.trophy1Showed = true;
+                pictureBox1.Visible = true;
+                pictureBox1.Image = Properties.Resources.bronze;
+            }
+            else if (Program.totalPoints >= 500 && !Program.trophy2Showed)
+            {
+                Program.trophy2Showed = true;
+                pictureBox1.Visible = true;
+                pictureBox1.Image = Properties.Resources.silver;
+            }
+            else if (Program.totalPoints >= 1000 && !Program.trophy3Showed)
+            {
+                Program.trophy3Showed = true;
+                pictureBox1.Visible = true;
+                pictureBox1.Image = Properties.Resources.gold;
+            }
+            else
+                pictureBox1.Visible = false;
         }
 
         private void button1_Click(object sender, EventArgs e)

@@ -26,6 +26,9 @@ namespace MatematyczneAsteroidy
         public static bool nextLvl = true;
         public static bool timerOff = false;
         public static bool livesOff = false;
+        public static bool trophy1Showed = false;
+        public static bool trophy2Showed = false;
+        public static bool trophy3Showed = false;
 
         [STAThread]
         static void Main()

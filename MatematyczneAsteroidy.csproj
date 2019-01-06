@@ -158,6 +158,9 @@
     <None Include="Graphics\life.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Graphics\Trophies\bronze.png" />
+    <None Include="Graphics\Trophies\gold.png" />
+    <None Include="Graphics\Trophies\silver.png" />
     <Content Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

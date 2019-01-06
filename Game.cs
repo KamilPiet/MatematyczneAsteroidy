@@ -23,7 +23,6 @@ namespace MatematyczneAsteroidy
         private int lifes = 3;
         private int astLeft = 0;
         public static double gameTime = 0;
-
         private bool finalScreenShowed = false;
         public Game()
         {
@@ -222,6 +221,7 @@ namespace MatematyczneAsteroidy
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             panel3.Visible = false;
+            timerGameLoop.Start();
             label1.Focus();
             switch (e.KeyCode)
             {
@@ -268,9 +268,15 @@ namespace MatematyczneAsteroidy
         private void button1_Click(object sender, EventArgs e)
         {
             if (panel3.Visible == true)
+            {
                 panel3.Visible = false;
+                timerGameLoop.Start();
+            }
             else
+            {
                 panel3.Visible = true;
+                timerGameLoop.Stop();
+            }
             label1.Focus();
         }
 
