@@ -13,6 +13,7 @@ namespace MatematyczneAsteroidy
     /// <summary>Menu główne</summary>
     public partial class MainMenu : Form
     {
+        /// <summary>Metoda odpowiedzialna za wyświetlenia właściwych informacji w oknie "Matematyczne Asteroidy" (menu główne)</summary>
         public MainMenu()
         {
             InitializeComponent();

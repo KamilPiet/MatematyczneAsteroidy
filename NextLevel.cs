@@ -13,7 +13,7 @@ namespace MatematyczneAsteroidy
     /// <summary>Okno wyświetlane po przejściu na następny poziom</summary>
     public partial class NextLevel : Form
     {
-        /// <summary>Metoda odpowiedzialna za wyświetlenia właściwych informacji w oknie</summary>
+        /// <summary>Metoda odpowiedzialna za wyświetlenia właściwych informacji w oknie "Następny poziom"</summary>
         public NextLevel()
         {
             InitializeComponent();

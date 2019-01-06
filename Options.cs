@@ -13,7 +13,7 @@ namespace MatematyczneAsteroidy
     /// <summary>Okno, w którym można zmieniać opcje gry</summary>
     public partial class Options : Form
     {
-        /// <summary>Metoda odpowiedzialna za wyświetlanie i przetwarzania informacji w tym oknie</summary>
+        /// <summary>Metoda odpowiedzialna za wyświetlanie i przetwarzania informacji w oknie "Opcje"</summary>
         public Options()
         {
             InitializeComponent();

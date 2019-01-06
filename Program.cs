@@ -58,7 +58,7 @@ namespace MatematyczneAsteroidy
         public static bool trophy1Showed = false;
         /// <summary>Flaga - czy zostało wyświetlone srebrne trofeum</summary>
         public static bool trophy2Showed = false;
-        /// <summary>Flaga - czy zostało wyświetlone złote trofeum/summary>
+        /// <summary>Flaga - czy zostało wyświetlone złote trofeum</summary>
         public static bool trophy3Showed = false;
 
         /// <summary>Główna metoda programu</summary>

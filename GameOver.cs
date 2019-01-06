@@ -13,7 +13,7 @@ namespace MatematyczneAsteroidy
     /// <summary>Okno wyświetlane po zakończeniu gry</summary>
     public partial class GameOver : Form
     {
-        /// <summary>Metoda odpowiedzialna za wyświetlenia właściwych informacji w oknie</summary>
+        /// <summary>Metoda odpowiedzialna za wyświetlenia właściwych informacji w oknie "Koniec gry"</summary>
         public GameOver()
         {
             InitializeComponent();

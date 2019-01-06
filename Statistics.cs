@@ -10,8 +10,10 @@ using System.Windows.Forms;
 
 namespace MatematyczneAsteroidy
 {
+    /// <summary>Okno ze statystykami i trofeami</summary>
     public partial class Statistics : Form
     {
+        /// <summary>Metoda odpowiedzialna za wyświetlanie statystyk i trefeów w oknie "Statystyki"</summary>
         public Statistics()
         {
             InitializeComponent();
@@ -25,6 +27,7 @@ namespace MatematyczneAsteroidy
             if (Program.totalPoints >= 1000)
                 pictureBox3.Image = Properties.Resources.gold;
         }
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Trofea"</summary>
         private void button1_Click(object sender, EventArgs e)
         {
             panel1.Visible = true;
@@ -33,12 +36,12 @@ namespace MatematyczneAsteroidy
             pictureBox3.Visible = true;
             button3.Visible = true;
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Powrót" (do menu)</summary>
         private void button2_Click(object sender, EventArgs e)
         {
             Close();
         }
-
+        /// <summary>Metoda obsługująca wciśnięcie przycisku "Powrót" (do statystyk)</summary>
         private void button3_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;

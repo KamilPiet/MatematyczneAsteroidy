@@ -53,18 +53,22 @@ namespace MatematyczneAsteroidy
             get { return points[2]; }
             set { points[2] = value; }
         }
-        /// <summary></summary>
+        /// <summary>Konstruktor tworzący statek kosmiczny</summary>
         public SpaceShip()
             :base()
         {
             MakeTriangle();
         }
+        /// <summary>Metoda odświeżająca informacje o statku kosmicznym - ustala jego aktualne położenie</summary>
+        /// <param name="X">Składowa odcięta środka statku</param>
+        /// <param name="Y">Składowa rzędna środka statku</param>
         public void Update(double X, double Y)
         {
             Left = (int)Math.Round(X);
             Top = (int)Math.Round(Y);
             MakeTriangle();
         }
+        /// <summary>Metoda odpowiedzialna za rysowanie trójkąta reprezentującego statek we właściwym miejscu i pod właściwym kątem</summary>
         private void MakeTriangle()
         {
             ax = (float)(Left - 25 * Math.Cos(angle));
@@ -77,6 +81,7 @@ namespace MatematyczneAsteroidy
             B = new PointF(bx, by);
             C = new PointF(cx, cy);
         }
+        /// <summary>Metoda rysująca statek kosmiczny na ekranie</summary>
         public void DrawImage(Graphics gr)
         {
             gr.DrawPolygon(Pens.White, points);
